@@ -1,0 +1,245 @@
+# ==========================================================================
+# Keyper landing page — single source of truth for all site text/data.
+#
+# Edit this file, then run: python3 tools/build_site.py
+# It regenerates index.html, robots.txt and sitemap.xml from templates/.
+# Never hand-edit those generated files — changes will be overwritten.
+# ==========================================================================
+
+business:
+  name: Keyper
+  legal_name: Keyper Property Management
+  tagline: The Keeper of Your Paphos Home
+  # TODO: replace with your real domain once you have one — it feeds the
+  # canonical URL, Open Graph tags, robots.txt and sitemap.xml.
+  domain: https://www.keyperpaphos.com
+  phone_display: "+357 97 950 559"
+  phone_href: "+35797950559"
+  email: keyper@info.com
+  whatsapp_number: "35797950559"
+  address_locality: Paphos
+  address_region: Paphos District
+  address_country: CY
+  price_range: "€€"
+  founding_year: 2026
+
+seo:
+  title: "Keyper | Property Management in Paphos, Cyprus for Overseas Owners"
+  description: "Keyper is a trusted property management company in Paphos, Cyprus. Key holding, inspections, cleaning, pool & garden care, maintenance and 24/7 support for villa and holiday-home owners in Paphos, Peyia, Coral Bay, Tala and Polis Chrysochous."
+  keywords: "property management Paphos, villa management Cyprus, key holding Paphos, holiday home care Paphos, property maintenance Cyprus, overseas homeowner services Paphos"
+  og_locale: en_GB
+  geo_region: CY-04
+  geo_placename: Paphos
+
+nav:
+  - {label: Services, href: "#services"}
+  - {label: How It Works, href: "#how-it-works"}
+  - {label: Plans, href: "#plans"}
+  - {label: Areas, href: "#areas"}
+  - {label: FAQ, href: "#faq"}
+  - {label: Contact, href: "#contact"}
+
+hero:
+  eyebrow: "Property Management · Paphos, Cyprus"
+  heading: "The Keeper of Your Paphos Home"
+  lede: "Attentive, discreet property management for overseas owners across Paphos, Peyia, Coral Bay and beyond. Your villa, watched over like our own — inspected, maintained and guest-ready, whether you're here or on the other side of the world."
+  primary_cta: {label: "Get a Free Quote", href: "#contact"}
+  secondary_cta: {label: "Call Keyper", href: "tel:+35797950559", icon: phone}
+  trust_items:
+    - {icon: shield-check, text: "Fully insured & vetted"}
+    - {icon: clock, text: "24/7 on-call support"}
+    - {icon: grid, text: "Photo-verified visits"}
+    - {icon: shield, text: "Local, English-speaking team"}
+  card:
+    icon: grid
+    title: "Latest inspection"
+    subtitle: "Villa Elia, Peyia · report sent today"
+
+areas_list:
+  - Paphos
+  - Peyia
+  - Coral Bay
+  - Tala
+  - Polis Chrysochous
+  - Kissonerga
+  - Chlorakas
+  - Emba
+
+services:
+  eyebrow: "What We Do"
+  heading: "Complete care for your Paphos property"
+  intro: "From routine inspections to emergency call-outs, Keyper handles every detail of home ownership in Cyprus so you don't have to worry from afar."
+  cta: {label: "Ask About a Service", href: "#contact"}
+  items:
+    - icon: search
+      title: "Property Inspections"
+      description: "Scheduled visits inside and out, every time, with a full photo report sent straight to you."
+    - icon: key
+      title: "Key Holding & Secure Access"
+      description: "Safe, insured key custody so we can act the moment you need us to, day or night."
+    - icon: clean
+      title: "Cleaning & Changeovers"
+      description: "Routine housekeeping and guest turnover cleaning, done properly every single time."
+    - icon: waves
+      title: "Pool Maintenance"
+      description: "Chemical balancing, filter care and regular cleaning so your pool is always guest-ready."
+    - icon: leaf
+      title: "Garden & Landscaping"
+      description: "Regular upkeep for olive trees, lawns and outdoor spaces, in every season."
+    - icon: window
+      title: "Villa & Window Cleaning"
+      description: "Interior and exterior cleaning that keeps your home looking its best, inside and out."
+    - icon: climate
+      title: "Air Conditioning Servicing"
+      description: "Seasonal checks and maintenance to keep every unit running cleanly and efficiently."
+    - icon: mail
+      title: "Mail & Post Collection"
+      description: "We collect and safely hold your post so nothing piles up while you're away."
+    - icon: wrench
+      title: "Repairs & Maintenance"
+      description: "Coordinated repairs and trades work, managed start to finish on your behalf."
+    - icon: gift
+      title: "Welcome Packs & Guest Prep"
+      description: "Fresh linens, groceries and a warm welcome ready for your guests' arrival."
+    - icon: shield-clock
+      title: "24/7 Emergency Support"
+      description: "Around-the-clock response if something needs urgent attention at your property."
+    - icon: report-check
+      title: "Owner Reporting"
+      description: "Clear digital reports after every visit, so you always know exactly how your home is doing."
+
+why:
+  eyebrow: "Why Keyper"
+  heading: "Peace of mind, built in"
+  intro: "We treat every property the way we'd want our own home looked after — thoroughly, honestly, and with a real person on the other end of the phone."
+  items:
+    - icon: shield
+      title: "Local Expertise"
+      description: "Based in Paphos with deep knowledge of the district, its trades and its properties."
+    - icon: grid
+      title: "Full Transparency"
+      description: "Photo updates and digital reports after every visit, so nothing is ever a surprise."
+    - icon: clock
+      title: "Always On Call"
+      description: "A real, single point of contact for anything your property needs, any time."
+    - icon: search-plain
+      title: "Discreet & Trustworthy"
+      description: "Vetted, insured and careful with your home — and your privacy — at every step."
+
+process:
+  eyebrow: "How It Works"
+  heading: "Getting started takes four simple steps"
+  intro: "From first call to ongoing care, we make handing over your property straightforward and stress-free."
+  steps:
+    - title: "Free Consultation"
+      description: "Tell us about your property, how often you visit, and what you need us to handle."
+    - title: "Tailored Plan"
+      description: "We put together a care plan and visit schedule that genuinely fits your home."
+    - title: "We Take the Keys"
+      description: "A secure handover and full baseline inspection so we start with a complete picture."
+    - title: "Ongoing Care & Reports"
+      description: "Regular visits, photo updates and complete transparency, for as long as you need us."
+
+plans:
+  eyebrow: "Care Plans"
+  heading: "A plan for every kind of owner"
+  intro: "Every home is different, so every plan is built around yours. Get in touch and we'll tailor the details and pricing to fit."
+  items:
+    - tag: Basic
+      name: "Watch & Report"
+      description: "Ideal for owners who mainly need reassurance that everything is in order."
+      featured: false
+      features:
+        - "Regular property inspections"
+        - "Secure key holding"
+        - "Mail & post collection"
+        - "Photo reports after every visit"
+    - tag: Complete
+      name: "Full Care"
+      description: "Our most popular plan — everything your property needs, handled end to end."
+      featured: true
+      features:
+        - "Everything in Basic"
+        - "Cleaning & changeovers"
+        - "Pool & garden maintenance"
+        - "Air conditioning servicing"
+    - tag: Premium
+      name: "White Glove"
+      description: "For owners who want a dedicated manager and zero involvement day to day."
+      featured: false
+      features:
+        - "Everything in Complete"
+        - "Guest welcome packs & prep"
+        - "Priority 24/7 emergency response"
+        - "Dedicated property manager"
+  cta_label: "Get a Quote"
+
+areas_section:
+  eyebrow: "Where We Work"
+  heading: "Covering Paphos and the wider district"
+  intro: "Wherever your villa or apartment is in the Paphos region, Keyper can be there — usually within the day."
+
+faq:
+  eyebrow: "Frequently Asked"
+  heading: "Questions Paphos property owners ask us"
+  items:
+    - question: "What does a property management company in Paphos actually do?"
+      answer: "We look after your villa or apartment while you're away — regular inspections, key holding, cleaning, pool and garden care, maintenance coordination, mail collection and emergency response, all reported back to you with photos."
+    - question: "How often will my property be inspected?"
+      answer: "Inspection frequency depends on your care plan, from weekly to monthly visits. Every visit is logged with a photo report so you always know the condition of your home."
+    - question: "Do you hold keys to my property?"
+      answer: "Yes. Keys are held securely and only accessed by vetted members of our team for scheduled visits, maintenance, guest turnovers or emergencies."
+    - question: "Can you manage my villa if I only visit a few weeks a year?"
+      answer: "Absolutely — this is exactly what Keyper was built for. Most of our clients are overseas owners who need someone local they trust to look after the property year-round."
+    - question: "Do you handle emergencies outside office hours?"
+      answer: "Yes, our Premium plan includes 24/7 emergency response so issues like leaks, alarms or storm damage are dealt with immediately, not left until the next working day."
+    - question: "Which areas of Paphos do you cover?"
+      answer: "We cover Paphos town and the wider district including Peyia, Coral Bay, Tala, Polis Chrysochous, Kissonerga, Chlorakas and Emba."
+    - question: "How much does property management cost in Paphos?"
+      answer: "Pricing depends on the size of your property, how often you need visits, and which services you choose. Get in touch for a free, no-obligation quote tailored to your home."
+
+contact:
+  eyebrow: "Get In Touch"
+  heading: "Let's take care of your Paphos home"
+  intro: "Tell us a little about your property and what you need. We usually reply within one working day."
+  info_items:
+    - icon: phone
+      label: "Call or WhatsApp"
+      value: "+357 97 950 559"
+      href: "tel:+35797950559"
+    - icon: mail
+      label: "Email"
+      value: "keyper@info.com"
+      href: "mailto:keyper@info.com"
+    - icon: pin
+      label: "Based in"
+      value: "Paphos, Cyprus — serving the whole district"
+      href: null
+    - icon: clock
+      label: "Response time"
+      value: "Within 1 working day — 24/7 for Premium plan emergencies"
+      href: null
+  form_note: "By submitting, you agree to be contacted by Keyper about your enquiry. We never share your details with third parties."
+
+footer:
+  description: "Attentive, discreet property management for overseas owners in Paphos, Cyprus. The keeper of your Paphos home."
+  tagline: "Designed for owners who trust Paphos to Keyper."
+  social:
+    - {icon: facebook, label: "Keyper on Facebook", href: "#"}
+    - {icon: instagram, label: "Keyper on Instagram", href: "#"}
+    - {icon: whatsapp, label: "Keyper on WhatsApp", href: "https://wa.me/35797950559"}
+  columns:
+    - heading: Services
+      links:
+        - {label: Inspections, href: "#services"}
+        - {label: "Key Holding", href: "#services"}
+        - {label: Cleaning, href: "#services"}
+        - {label: "Pool & Garden", href: "#services"}
+        - {label: Maintenance, href: "#services"}
+    - heading: Company
+      links:
+        - {label: "How It Works", href: "#how-it-works"}
+        - {label: Plans, href: "#plans"}
+        - {label: "Areas We Cover", href: "#areas"}
+        - {label: FAQ, href: "#faq"}
+        - {label: Contact, href: "#contact"}

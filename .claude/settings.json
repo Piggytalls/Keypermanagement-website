@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:lonelyhomes.cy)",
+      "Bash(mkdir -p /Users/pigasiosspyrou/Desktop/website1/assets/css /Users/pigasiosspyrou/Desktop/website1/assets/js /Users/pigasiosspyrou/Desktop/website1/assets/img)",
+      "Bash(cp /Users/pigasiosspyrou/Desktop/website1/brand_assents/keyper_logo_centered.png /Users/pigasiosspyrou/Desktop/website1/assets/img/keyper-logo.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/pigasiosspyrou/Desktop/website1/assets/img/keyper-logo.png)",
+      "Bash(sips -s format png -Z 512 keyper-logo.png --out favicon-512.png)",
+      "Bash(sips -s format png -Z 180 keyper-logo.png --out apple-touch-icon.png)",
+      "Bash(sips -s format png -Z 32 keyper-logo.png --out favicon-32.png)",
+      "Bash(python3 -c \"from PIL import Image; print\\('ok'\\)\")",
+      "Bash(python3)",
+      "Bash(cd /Users/pigasiosspyrou/Desktop/website1/assets/img *)",
+      "Read(//Applications/**)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-pigasiosspyrou-Desktop-website1/0f4bd953-0541-4513-84e5-633be0264c17/scratchpad/keyper-full.png --window-size=1440,4600 http://localhost:8791/index.html)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-pigasiosspyrou-Desktop-website1/0f4bd953-0541-4513-84e5-633be0264c17/scratchpad/keyper-full2.png --window-size=1440,2600 --window-position=0,4600 http://localhost:8791/index.html)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-pigasiosspyrou-Desktop-website1/0f4bd953-0541-4513-84e5-633be0264c17/scratchpad/keyper-full-tall.png --window-size=1440,7200 http://localhost:8791/index.html)",
+      "Bash(python3 -c ' *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-pigasiosspyrou-Desktop-website1/0f4bd953-0541-4513-84e5-633be0264c17/scratchpad/keyper-footer2.png --window-size=1440,8500 http://localhost:8791/index.html)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-pigasiosspyrou-Desktop-website1/0f4bd953-0541-4513-84e5-633be0264c17/scratchpad/keyper-header-check.png --window-size=1440,900 http://localhost:8791/index.html)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --screenshot=/private/tmp/claude-501/-Users-pigasiosspyrou-Desktop-website1/0f4bd953-0541-4513-84e5-633be0264c17/scratchpad/keyper-footer-check.png --window-size=1440,8500 http://localhost:8791/index.html)",
+      "Bash(pkill -f \"http.server 8791\")",
+      "Bash(python3 -c \"import jinja2; print\\('jinja2', jinja2.__version__\\)\")",
+      "Bash(python3 -c \"import yaml; print\\('yaml ok'\\)\")",
+      "Bash(python3 -c \"import markupsafe; print\\('ok'\\)\")",
+      "Bash(python3 tools/prepare_brand_assets.py)",
+      "Bash(python3 tools/build_site.py)",
+      "Read(//private/tmp/**)",
+      "Bash(jobs)",
+      "Bash(grep -v \"^[<>]\\\\s*$\")"
+    ],
+    "additionalDirectories": [
+      "/Users/pigasiosspyrou/Desktop/website1/assets/img"
+    ]
+  }
+}

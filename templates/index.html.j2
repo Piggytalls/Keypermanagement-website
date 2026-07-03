@@ -1,0 +1,425 @@
+<!--
+  GENERATED FILE — do not hand-edit.
+  Source: content/site_content.yaml + templates/index.html.j2
+  Rebuild with: python3 tools/build_site.py
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ seo.title }}</title>
+<meta name="description" content="{{ seo.description }}">
+<meta name="keywords" content="{{ seo.keywords }}">
+<meta name="author" content="{{ business.legal_name }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ business.domain }}/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ business.legal_name }}">
+<meta property="og:title" content="{{ seo.title }}">
+<meta property="og:description" content="{{ hero.lede }}">
+<meta property="og:image" content="{{ business.domain }}/assets/img/keyper-logo.png">
+<meta property="og:url" content="{{ business.domain }}/">
+<meta property="og:locale" content="{{ seo.og_locale }}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seo.title }}">
+<meta name="twitter:description" content="{{ hero.lede }}">
+<meta name="twitter:image" content="{{ business.domain }}/assets/img/keyper-logo.png">
+
+<!-- Geo / local SEO -->
+<meta name="geo.region" content="{{ seo.geo_region }}">
+<meta name="geo.placename" content="{{ seo.geo_placename }}">
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
+<meta name="theme-color" content="#3e3725">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Structured data: Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": "{{ business.domain }}/#business",
+  "name": "{{ business.legal_name }}",
+  "alternateName": "{{ business.name }}",
+  "description": "{{ seo.description }}",
+  "image": "{{ business.domain }}/assets/img/keyper-logo.png",
+  "logo": "{{ business.domain }}/assets/img/keyper-logo.png",
+  "url": "{{ business.domain }}/",
+  "telephone": "{{ business.phone_href }}",
+  "email": "{{ business.email }}",
+  "priceRange": "{{ business.price_range }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ business.address_locality }}",
+    "addressRegion": "{{ business.address_region }}",
+    "addressCountry": "{{ business.address_country }}"
+  },
+  "areaServed": [
+{%- for area in areas_list %}
+    { "@type": "{{ 'City' if area == business.address_locality else 'Place' }}", "name": "{{ area }}" }{{ "," if not loop.last }}
+{%- endfor %}
+  ],
+  "sameAs": []
+}
+</script>
+
+<!-- Structured data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+{%- for item in faq["items"] %}
+    {
+      "@type": "Question",
+      "name": "{{ item.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ item.answer }}"
+      }
+    }{{ "," if not loop.last }}
+{%- endfor %}
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main" style="position:absolute;left:-999px;">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#top" class="brand" aria-label="{{ business.name }} home">
+      <img src="assets/img/keyper-logo-transparent.png" alt="{{ business.name }} — Property Management Paphos" style="height:44px;width:auto;">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <ul>
+        {%- for item in nav %}
+        <li><a href="{{ item.href }}">{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:{{ business.phone_href }}">
+        {{ icon('phone') }}
+        {{ business.phone_display }}
+      </a>
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-copy" data-reveal>
+      <span class="eyebrow">{{ hero.eyebrow }}</span>
+      <h1>{{ hero.heading }}</h1>
+      <p class="lede">{{ hero.lede }}</p>
+      <div class="hero-actions">
+        <a href="{{ hero.primary_cta.href }}" class="btn btn-primary">{{ hero.primary_cta.label }}</a>
+        <a href="{{ hero.secondary_cta.href }}" class="btn btn-outline">
+          {{ icon(hero.secondary_cta.icon) }}
+          {{ hero.secondary_cta.label }}
+        </a>
+      </div>
+      <div class="trust-strip">
+        {%- for t in hero.trust_items %}
+        <span class="trust-item">{{ icon(t.icon) }}{{ t.text }}</span>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <div class="hero-visual" data-reveal>
+      {{ icon('hero-glyph', cls='glyph') }}
+      <div class="hero-card">
+        <span class="icon-badge">{{ icon(hero.card.icon) }}</span>
+        <span>
+          <strong>{{ hero.card.title }}</strong>
+          <span>{{ hero.card.subtitle }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AREAS MARQUEE ===================== -->
+<div class="areas-marquee">
+  <div class="container">
+    {%- for area in areas_list %}
+    <span>{{ area }}</span>{% if not loop.last %}<span class="divider">&middot;</span>{% endif %}
+    {%- endfor %}
+  </div>
+</div>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">{{ services.eyebrow }}</span>
+      <h2>{{ services.heading }}</h2>
+      <p>{{ services.intro }}</p>
+    </div>
+
+    <div class="service-grid">
+      {%- for s in services["items"] %}
+      <article class="service-card" data-reveal>
+        <span class="service-icon">{{ icon(s.icon) }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.description }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+
+    <div class="services-cta" data-reveal>
+      <a href="{{ services.cta.href }}" class="btn btn-outline">{{ services.cta.label }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY US ===================== -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">{{ why.eyebrow }}</span>
+      <h2>{{ why.heading }}</h2>
+      <p>{{ why.intro }}</p>
+    </div>
+
+    <div class="why-grid">
+      {%- for w in why["items"] %}
+      <div class="why-card" data-reveal>
+        <span class="service-icon">{{ icon(w.icon) }}</span>
+        <h3>{{ w.title }}</h3>
+        <p>{{ w.description }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="process" id="how-it-works">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">{{ process.eyebrow }}</span>
+      <h2>{{ process.heading }}</h2>
+      <p>{{ process.intro }}</p>
+    </div>
+
+    <div class="process-steps">
+      {%- for step in process.steps %}
+      <div class="process-step" data-reveal>
+        <span class="step-num">{{ loop.index }}</span>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.description }}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLANS ===================== -->
+<section class="plans" id="plans">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">{{ plans.eyebrow }}</span>
+      <h2>{{ plans.heading }}</h2>
+      <p>{{ plans.intro }}</p>
+    </div>
+
+    <div class="plan-grid">
+      {%- for p in plans["items"] %}
+      <div class="plan-card{{ ' featured' if p.featured else '' }}" data-reveal>
+        <span class="plan-tag">{{ p.tag }}</span>
+        <h3>{{ p.name }}</h3>
+        <p class="plan-desc">{{ p.description }}</p>
+        <ul>
+          {%- for f in p.features %}
+          <li>{{ icon('check', stroke_width=2) }}{{ f }}</li>
+          {%- endfor %}
+        </ul>
+        <a href="#contact" class="btn {{ 'btn-primary' if p.featured else 'btn-outline' }} btn-block">{{ plans.cta_label }}</a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AREAS ===================== -->
+<section class="areas" id="areas">
+  <div class="container">
+    <div class="areas-layout">
+      <div data-reveal>
+        <span class="eyebrow">{{ areas_section.eyebrow }}</span>
+        <h2>{{ areas_section.heading }}</h2>
+        <p style="color:var(--slate-soft);margin-bottom:28px;">{{ areas_section.intro }}</p>
+        <div class="area-chips">
+          {%- for area in areas_list %}
+          <span class="area-chip">{{ icon('pin', stroke_width=1.7) }}{{ area }}</span>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="map-visual" data-reveal aria-hidden="true">
+        {{ icon('pin', stroke_width=1.2) }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">{{ faq.eyebrow }}</span>
+      <h2>{{ faq.heading }}</h2>
+    </div>
+
+    <div class="faq-list" data-reveal>
+      {%- for item in faq["items"] %}
+      <div class="faq-item">
+        <button class="faq-question">{{ item.question }}<span class="plus"></span></button>
+        <div class="faq-answer"><p>{{ item.answer }}</p></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">{{ contact.eyebrow }}</span>
+      <h2>{{ contact.heading }}</h2>
+      <p>{{ contact.intro }}</p>
+    </div>
+
+    <div class="contact-layout">
+      <div data-reveal>
+        <div class="contact-info-list">
+          {%- for item in contact.info_items %}
+          <div class="contact-info-item">
+            <span class="service-icon">{{ icon(item.icon) }}</span>
+            {%- if item.href %}
+            <span><strong>{{ item.label }}</strong><a href="{{ item.href }}">{{ item.value }}</a></span>
+            {%- else %}
+            <span><strong>{{ item.label }}</strong><span>{{ item.value }}</span></span>
+            {%- endif %}
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+
+      <form class="contact-form" data-reveal aria-label="Contact form">
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">Full name</label>
+            <input type="text" id="fname" name="name" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="fphone">Phone / WhatsApp</label>
+            <input type="tel" id="fphone" name="phone" placeholder="+357 ...">
+          </div>
+          <div class="field">
+            <label for="farea">Property location</label>
+            <select id="farea" name="area">
+              <option value="">Select an area</option>
+              {%- for area in areas_list %}
+              <option>{{ area }}</option>
+              {%- endfor %}
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fmsg">How can we help?</label>
+          <textarea id="fmsg" name="message" placeholder="Tell us about your property and what you need..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        <p class="form-note">{{ contact.form_note }}</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/img/keyper-logo-transparent.png" alt="{{ business.legal_name }}">
+        <p>{{ footer.description }}</p>
+        <div class="footer-social">
+          {%- for s in footer.social %}
+          <a href="{{ s.href }}" aria-label="{{ s.label }}">{{ icon(s.icon) }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+
+      {%- for col in footer.columns %}
+      <div class="footer-col">
+        <h4>{{ col.heading }}</h4>
+        <ul>
+          {%- for link in col.links %}
+          <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:{{ business.phone_href }}">{{ business.phone_display }}</a></li>
+          <li><a href="mailto:{{ business.email }}">{{ business.email }}</a></li>
+          <li><span>{{ business.address_locality }}, Cyprus</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ current_year }} {{ business.legal_name }}. All rights reserved.</span>
+      <span>{{ footer.tagline }}</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-cta" href="https://wa.me/{{ business.whatsapp_number }}" target="_blank" rel="noopener" aria-label="Chat with {{ business.name }} on WhatsApp">
+  {{ icon('whatsapp') }}
+</a>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
