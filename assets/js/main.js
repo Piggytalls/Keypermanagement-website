@@ -70,20 +70,20 @@
     });
   }
 
-  // Contact form (static demo — wire up to a backend/email service before going live)
-  var contactForm = document.querySelector(".contact-form");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var btn = contactForm.querySelector("button[type='submit']");
-      var original = btn.textContent;
-      btn.textContent = "Thank you — we'll be in touch shortly";
-      btn.disabled = true;
-      setTimeout(function () {
-        btn.textContent = original;
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3500);
-    });
+  // Contact form submits to FormSubmit (see index.html.j2); on success it
+  // redirects back here with ?sent=true — show a confirmation and clean the URL.
+  var params = new URLSearchParams(window.location.search);
+  if (params.get("sent") === "true") {
+    var note = document.getElementById("formSentNote");
+    if (note) {
+      note.textContent = "Thank you — your message has been sent. We'll be in touch shortly.";
+      note.classList.add("form-note-success");
+    }
+    params.delete("sent");
+    var cleanUrl =
+      window.location.pathname +
+      (params.toString() ? "?" + params.toString() : "") +
+      window.location.hash;
+    window.history.replaceState({}, "", cleanUrl);
   }
 })();

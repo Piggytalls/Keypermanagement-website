@@ -1,0 +1,47 @@
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/img/keyper-logo-transparent.png" alt="{{ business.legal_name }}">
+        <p>{{ footer.description }}</p>
+        <div class="footer-social">
+          {%- for s in footer.social %}
+          <a href="{{ s.href }}" aria-label="{{ s.label }}">{{ icon(s.icon) }}</a>
+          {%- endfor %}
+        </div>
+      </div>
+
+      {%- for col in footer.columns %}
+      <div class="footer-col">
+        <h4>{{ col.heading }}</h4>
+        <ul>
+          {%- for link in col.links %}
+          <li><a href="{{ (('index.html' if subpage else '') ~ link.href) if link.href.startswith('#') else link.href }}">{{ link.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:{{ business.phone_href }}">{{ business.phone_display }}</a></li>
+          <li><a href="mailto:{{ business.email }}">{{ business.email }}</a></li>
+          <li><span>{{ business.address_locality }}, Cyprus</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ current_year }} {{ business.legal_name }}. All rights reserved.</span>
+      <span>{{ footer.tagline }}</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-cta" href="https://wa.me/{{ business.whatsapp_number }}" target="_blank" rel="noopener" aria-label="Chat with {{ business.name }} on WhatsApp">
+  {{ icon('whatsapp') }}
+</a>
+
+<script src="assets/js/main.js"></script>

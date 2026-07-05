@@ -1,0 +1,56 @@
+<!--
+  GENERATED FILE — do not hand-edit.
+  Source: content/site_content.yaml + templates/terms.html.j2
+  Rebuild with: python3 tools/build_site.py
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | {{ business.legal_name }}</title>
+<meta name="description" content="The terms and conditions for using the {{ business.legal_name }} website and enquiring about our property management services in {{ business.address_locality }}, Cyprus.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ business.domain }}/terms.html">
+{% include "_head-assets.html.j2" %}
+</head>
+<body>
+
+{% set subpage = true %}
+{% include "_header.html.j2" %}
+
+<main id="main">
+<section class="legal-page">
+  <div class="container">
+    <h1>Terms of Service</h1>
+    <p class="legal-updated">Last updated: {{ legal.last_updated }}</p>
+
+    <p>These terms govern your use of {{ business.domain }} (the "Site"), operated by {{ business.legal_name }} ("Keyper", "we", "us", "our"). By using the Site, you agree to these terms.</p>
+
+    <h2>1. Website use</h2>
+    <p>The content on this Site is provided for general information about our property management services in {{ business.address_locality }} and the wider district. We aim to keep it accurate and up to date, but we make no guarantees about completeness or accuracy, and content may change without notice.</p>
+
+    <h2>2. Enquiries and quotes</h2>
+    <p>Submitting the contact form or requesting a quote does not create a binding contract between you and {{ business.legal_name }}. A service agreement only comes into effect once we've discussed your property's specific needs and both parties have agreed to a written care plan and pricing.</p>
+
+    <h2>3. Service plans</h2>
+    <p>The "Basic", "Complete" and "Premium" plans described on this Site are illustrative starting points. Actual scope, pricing and terms for any engagement are confirmed directly with you before work begins and may vary based on your property and requirements.</p>
+
+    <h2>4. Intellectual property</h2>
+    <p>The text, images, logo and design of this Site belong to {{ business.legal_name }} unless otherwise stated. You may not reproduce or reuse them without our written permission.</p>
+
+    <h2>5. Limitation of liability</h2>
+    <p>While we take care to keep this Site accurate, {{ business.legal_name }} is not liable for any loss arising from reliance on information published here. Our liability in connection with any property management services we actually provide is governed separately by the signed service agreement for that engagement, not by this Site.</p>
+
+    <h2>6. Governing law</h2>
+    <p>These terms are governed by the laws of the Republic of Cyprus, and any disputes are subject to the exclusive jurisdiction of the courts of Cyprus.</p>
+
+    <h2>7. Contact</h2>
+    <p>Questions about these terms can be sent to <a href="mailto:{{ business.email }}">{{ business.email }}</a>.</p>
+  </div>
+</section>
+</main>
+
+{% include "_footer.html.j2" %}
+</body>
+</html>

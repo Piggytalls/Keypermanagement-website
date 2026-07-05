@@ -1,0 +1,29 @@
+<a class="skip-link" href="#main" style="position:absolute;left:-999px;">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="{{ 'index.html' if subpage else '#top' }}" class="brand" aria-label="{{ business.name }} home">
+      <img src="assets/img/keyper-logo-transparent.png" alt="{{ business.name }} — Property Management Paphos" style="height:44px;width:auto;">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <ul>
+        {%- for item in nav %}
+        <li><a href="{{ ('index.html' if subpage else '') ~ item.href }}">{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:{{ business.phone_href }}">
+        {{ icon('phone') }}
+        {{ business.phone_display }}
+      </a>
+      <a href="{{ 'index.html' if subpage else '' }}#contact" class="btn btn-primary">Get a Free Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

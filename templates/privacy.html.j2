@@ -1,0 +1,56 @@
+<!--
+  GENERATED FILE — do not hand-edit.
+  Source: content/site_content.yaml + templates/privacy.html.j2
+  Rebuild with: python3 tools/build_site.py
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | {{ business.legal_name }}</title>
+<meta name="description" content="How {{ business.legal_name }} collects, uses and protects the personal data of website visitors and clients, in line with the EU General Data Protection Regulation (GDPR).">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ business.domain }}/privacy.html">
+{% include "_head-assets.html.j2" %}
+</head>
+<body>
+
+{% set subpage = true %}
+{% include "_header.html.j2" %}
+
+<main id="main">
+<section class="legal-page">
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <p class="legal-updated">Last updated: {{ legal.last_updated }}</p>
+
+    <p>{{ business.legal_name }} ("Keyper", "we", "us", "our") respects your privacy. This policy explains what personal data we collect through {{ business.domain }} (the "Site"), why we collect it, and the rights you have over it.</p>
+
+    <h2>1. Who we are</h2>
+    <p>{{ business.legal_name }} is a property management company based in {{ business.address_locality }}, {{ business.address_country }}. You can contact us at <a href="mailto:{{ business.email }}">{{ business.email }}</a> or <a href="tel:{{ business.phone_href }}">{{ business.phone_display }}</a> about anything in this policy.</p>
+
+    <h2>2. What we collect</h2>
+    <p>When you submit the contact form on this Site, we collect the information you provide: your name, email address, phone number, property location and the message you write. We do not use cookies or analytics tracking on this Site beyond what your browser sends automatically as part of a normal web request (e.g. IP address, browser type), and we do not sell or rent your data to anyone.</p>
+
+    <h2>3. How we use it</h2>
+    <p>We use the information you submit solely to respond to your enquiry and, if you become a client, to provide our property management services to you. We do not use your data for marketing you haven't asked for, and we do not share it with third parties except the form-processing service described below and any tradespeople or contractors directly involved in delivering a service you've requested.</p>
+
+    <h2>4. Third-party processors</h2>
+    <p>Contact form submissions are transmitted via FormSubmit (formsubmit.co), a third-party form-processing service, which forwards your message to our inbox by email. No other third-party services process personal data submitted through this Site.</p>
+
+    <h2>5. How long we keep it</h2>
+    <p>We keep enquiry and client data only for as long as needed to respond to your enquiry or, if you become a client, for the duration of our engagement plus any period required by Cypriot tax and accounting law.</p>
+
+    <h2>6. Your rights</h2>
+    <p>Under the GDPR, you have the right to access, correct, or request deletion of your personal data, and to object to or restrict its processing. To exercise any of these rights, email us at <a href="mailto:{{ business.email }}">{{ business.email }}</a>. You also have the right to lodge a complaint with the Cyprus Office of the Commissioner for Personal Data Protection.</p>
+
+    <h2>7. Changes to this policy</h2>
+    <p>We may update this policy from time to time. The "Last updated" date above reflects the most recent revision.</p>
+  </div>
+</section>
+</main>
+
+{% include "_footer.html.j2" %}
+</body>
+</html>

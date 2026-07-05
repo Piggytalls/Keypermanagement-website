@@ -21,6 +21,9 @@
 <meta property="og:title" content="{{ seo.title }}">
 <meta property="og:description" content="{{ hero.lede }}">
 <meta property="og:image" content="{{ business.domain }}/assets/img/keyper-logo.png">
+<meta property="og:image:width" content="1848">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="{{ business.name }} — Property Management Paphos">
 <meta property="og:url" content="{{ business.domain }}/">
 <meta property="og:locale" content="{{ seo.og_locale }}">
 
@@ -34,19 +37,7 @@
 <meta name="geo.region" content="{{ seo.geo_region }}">
 <meta name="geo.placename" content="{{ seo.geo_placename }}">
 
-<!-- Icons -->
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/img/favicon-512.png">
-<meta name="theme-color" content="#3e3725">
-
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="assets/css/styles.css">
+{% include "_head-assets.html.j2" %}
 
 <!-- Structured data: Local Business -->
 <script type="application/ld+json">
@@ -100,35 +91,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main" style="position:absolute;left:-999px;">Skip to content</a>
-
-<!-- ===================== HEADER ===================== -->
-<header class="site-header" id="siteHeader">
-  <div class="container">
-    <a href="#top" class="brand" aria-label="{{ business.name }} home">
-      <img src="assets/img/keyper-logo-transparent.png" alt="{{ business.name }} — Property Management Paphos" style="height:44px;width:auto;">
-    </a>
-
-    <nav class="main-nav" id="mainNav" aria-label="Primary">
-      <ul>
-        {%- for item in nav %}
-        <li><a href="{{ item.href }}">{{ item.label }}</a></li>
-        {%- endfor %}
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a class="header-phone" href="tel:{{ business.phone_href }}">
-        {{ icon('phone') }}
-        {{ business.phone_display }}
-      </a>
-      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
+{% include "_header.html.j2" %}
 
 <main id="main">
 
@@ -334,7 +297,11 @@
         </div>
       </div>
 
-      <form class="contact-form" data-reveal aria-label="Contact form">
+      <form class="contact-form" data-reveal aria-label="Contact form"
+            action="https://formsubmit.co/{{ business.email }}" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — {{ business.name }} website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="{{ business.domain }}/?sent=true#contact">
         <div class="form-row">
           <div class="field">
             <label for="fname">Full name</label>
@@ -366,7 +333,7 @@
           <textarea id="fmsg" name="message" placeholder="Tell us about your property and what you need..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-        <p class="form-note">{{ contact.form_note }}</p>
+        <p class="form-note" id="formSentNote">{{ contact.form_note }}</p>
       </form>
     </div>
   </div>
@@ -374,52 +341,6 @@
 
 </main>
 
-<!-- ===================== FOOTER ===================== -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img src="assets/img/keyper-logo-transparent.png" alt="{{ business.legal_name }}">
-        <p>{{ footer.description }}</p>
-        <div class="footer-social">
-          {%- for s in footer.social %}
-          <a href="{{ s.href }}" aria-label="{{ s.label }}">{{ icon(s.icon) }}</a>
-          {%- endfor %}
-        </div>
-      </div>
-
-      {%- for col in footer.columns %}
-      <div class="footer-col">
-        <h4>{{ col.heading }}</h4>
-        <ul>
-          {%- for link in col.links %}
-          <li><a href="{{ link.href }}">{{ link.label }}</a></li>
-          {%- endfor %}
-        </ul>
-      </div>
-      {%- endfor %}
-
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="tel:{{ business.phone_href }}">{{ business.phone_display }}</a></li>
-          <li><a href="mailto:{{ business.email }}">{{ business.email }}</a></li>
-          <li><span>{{ business.address_locality }}, Cyprus</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>&copy; {{ current_year }} {{ business.legal_name }}. All rights reserved.</span>
-      <span>{{ footer.tagline }}</span>
-    </div>
-  </div>
-</footer>
-
-<a class="float-cta" href="https://wa.me/{{ business.whatsapp_number }}" target="_blank" rel="noopener" aria-label="Chat with {{ business.name }} on WhatsApp">
-  {{ icon('whatsapp') }}
-</a>
-
-<script src="assets/js/main.js"></script>
+{% include "_footer.html.j2" %}
 </body>
 </html>

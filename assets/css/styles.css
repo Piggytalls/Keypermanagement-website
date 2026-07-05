@@ -3,6 +3,41 @@
    Design tokens sourced from brand board (Bark / Slate / Olive / Chalk / Paper)
    ========================================================================== */
 
+/* ---------- Fonts (self-hosted — avoids sending EU visitor IPs to Google's
+   font CDN, which is a GDPR compliance risk for EU-based sites) ---------- */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/poppins-500-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../fonts/poppins-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/poppins-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --bark: #3e3725;
   --bark-soft: #55492f;
@@ -958,6 +993,12 @@ section {
   margin-bottom: 0;
 }
 
+.form-note-success {
+  color: #a8d5ba;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
 /* ---------- Footer ---------- */
 .site-footer {
   background: #2c271a;
@@ -967,7 +1008,7 @@ section {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1.1fr;
   gap: 40px;
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(244, 241, 233, 0.12);
@@ -1193,4 +1234,46 @@ section {
   .hero-actions .btn {
     width: 100%;
   }
+}
+
+/* ---------- Legal pages (Privacy Policy / Terms) ---------- */
+.legal-page {
+  padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 8vw, 108px);
+}
+
+.legal-page .container {
+  max-width: 760px;
+}
+
+.legal-page h1 {
+  font-size: clamp(1.9rem, 3.4vw, 2.6rem);
+  margin-bottom: 0.3em;
+}
+
+.legal-page .legal-updated {
+  color: var(--slate-soft);
+  font-size: 0.9rem;
+  margin-bottom: 2.5em;
+}
+
+.legal-page h2 {
+  font-size: 1.25rem;
+  margin-top: 2em;
+}
+
+.legal-page p,
+.legal-page li {
+  color: var(--slate-soft);
+  line-height: 1.7;
+}
+
+.legal-page ul {
+  margin-bottom: 1em;
+  padding-left: 1.3em;
+  list-style: disc;
+}
+
+.legal-page a {
+  color: var(--bark);
+  text-decoration: underline;
 }

@@ -48,9 +48,12 @@ def build(content_path: Path, templates_dir: Path, out_dir: Path) -> None:
     )
     env.globals["icon"] = icon_global
     env.globals["current_year"] = datetime.date.today().year
+    env.globals["build_date"] = datetime.date.today().isoformat()
 
     targets = {
         "index.html.j2": out_dir / "index.html",
+        "privacy.html.j2": out_dir / "privacy.html",
+        "terms.html.j2": out_dir / "terms.html",
         "robots.txt.j2": out_dir / "robots.txt",
         "sitemap.xml.j2": out_dir / "sitemap.xml",
     }

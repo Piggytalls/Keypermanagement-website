@@ -10,18 +10,19 @@ business:
   name: Keyper
   legal_name: Keyper Property Management
   tagline: The Keeper of Your Paphos Home
-  # TODO: replace with your real domain once you have one — it feeds the
-  # canonical URL, Open Graph tags, robots.txt and sitemap.xml.
-  domain: https://www.keyperpaphos.com
+  domain: https://www.keypermanagement.com
   phone_display: "+357 97 950 559"
   phone_href: "+35797950559"
-  email: keyper@info.com
+  email: contact@keypermanagement.com
   whatsapp_number: "35797950559"
   address_locality: Paphos
   address_region: Paphos District
   address_country: CY
   price_range: "€€"
   founding_year: 2026
+
+legal:
+  last_updated: "5 July 2026"
 
 seo:
   title: "Keyper | Property Management in Paphos, Cyprus for Overseas Owners"
@@ -209,8 +210,8 @@ contact:
       href: "tel:+35797950559"
     - icon: mail
       label: "Email"
-      value: "keyper@info.com"
-      href: "mailto:keyper@info.com"
+      value: "contact@keypermanagement.com"
+      href: "mailto:contact@keypermanagement.com"
     - icon: pin
       label: "Based in"
       value: "Paphos, Cyprus — serving the whole district"
@@ -225,8 +226,6 @@ footer:
   description: "Attentive, discreet property management for overseas owners in Paphos, Cyprus. The keeper of your Paphos home."
   tagline: "Designed for owners who trust Paphos to Keyper."
   social:
-    - {icon: facebook, label: "Keyper on Facebook", href: "#"}
-    - {icon: instagram, label: "Keyper on Instagram", href: "#"}
     - {icon: whatsapp, label: "Keyper on WhatsApp", href: "https://wa.me/35797950559"}
   columns:
     - heading: Services
@@ -243,3 +242,7 @@ footer:
         - {label: "Areas We Cover", href: "#areas"}
         - {label: FAQ, href: "#faq"}
         - {label: Contact, href: "#contact"}
+    - heading: Legal
+      links:
+        - {label: "Privacy Policy", href: "privacy.html"}
+        - {label: "Terms of Service", href: "terms.html"}
