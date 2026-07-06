@@ -66,7 +66,11 @@
     { "@type": "{{ 'City' if area == business.address_locality else 'Place' }}", "name": "{{ area }}" }{{ "," if not loop.last }}
 {%- endfor %}
   ],
-  "sameAs": []
+  "sameAs": [
+{%- for s in footer.social %}
+    "{{ s.href }}"{{ "," if not loop.last }}
+{%- endfor %}
+  ]
 }
 </script>
 

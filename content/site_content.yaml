@@ -260,6 +260,8 @@ footer:
   description: "Attentive, discreet property management for overseas owners in Paphos, Cyprus. The keeper of your Paphos home."
   tagline: "Designed for owners who trust Paphos to Keyper."
   social:
+    - {icon: facebook, label: "Keyper on Facebook", href: "https://www.facebook.com/profile.php?id=61591648475277"}
+    - {icon: instagram, label: "Keyper on Instagram", href: "https://www.instagram.com/keypermanagement/"}
     - {icon: whatsapp, label: "Keyper on WhatsApp", href: "https://wa.me/35797950559"}
   columns:
     - heading: Services
