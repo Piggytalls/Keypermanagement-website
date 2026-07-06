@@ -1,5 +1,20 @@
 <a class="skip-link" href="#main" style="position:absolute;left:-999px;">Skip to content</a>
 
+<!-- ===================== TOP BAR ===================== -->
+<div class="topbar">
+  <div class="container topbar-inner">
+    <a class="topbar-email" href="mailto:{{ business.email }}">
+      {{ icon('mail') }}
+      {{ business.email }}
+    </a>
+    <div class="topbar-social">
+      {%- for s in footer.social %}
+      <a href="{{ s.href }}" aria-label="{{ s.label }}" target="_blank" rel="noopener">{{ icon(s.icon) }}</a>
+      {%- endfor %}
+    </div>
+  </div>
+</div>
+
 <!-- ===================== HEADER ===================== -->
 <header class="site-header" id="siteHeader">
   <div class="container">

@@ -23,10 +23,13 @@ page — without ever hand-editing generated HTML directly.
   blocks, new schema field) — not for text changes, which belong in the YAML.
 - `templates/_header.html.j2`, `templates/_footer.html.j2`,
   `templates/_head-assets.html.j2` — shared partials included by every page
-  template (nav/footer markup, favicons, font preload, stylesheet link).
-  Edit these once to change something that appears on every page. They rely
-  on a `subpage` context variable (see "Adding a new page" below) to know
-  whether in-page anchors like `#services` need an `index.html` prefix.
+  template (top bar with email + social icons, nav/footer markup, favicons,
+  font preload, stylesheet link). Edit these once to change something that
+  appears on every page. They rely on a `subpage` context variable (see
+  "Adding a new page" below) to know whether in-page anchors like
+  `#services` need an `index.html` prefix. `footer.social` in the YAML
+  drives both the top bar's icons and the footer's — one list, two
+  placements — so adding/removing a social link only needs one edit.
 - `assets/css/styles.css`, `assets/js/main.js` — static design system and
   interaction logic (brand colors/typography, mobile nav, FAQ accordion,
   scroll reveal, post-submit confirmation banner). Hand-edited directly; not
@@ -141,6 +144,22 @@ considering the change done. Also spot-check `privacy.html`/`terms.html` if
 a shared partial (`_header`, `_footer`, `_head-assets`) or `styles.css`
 changed, since they render on every page. Kill the server afterward
 (`pkill -f "http.server 8791"`).
+
+**Don't trust `--screenshot ... --window-size=W,H` for narrow/mobile
+widths on this machine's Chrome (149.x).** It renders at some other
+internal width (observed: floors around 390-500px) and then scales the
+output PNG down to the requested `W,H` — so a `--window-size=390,140`
+screenshot can show elements as "cut off past the right edge" that are
+actually fine at a real 390px viewport. This looks exactly like a
+horizontal-overflow bug but isn't one. To check real narrow-viewport
+layout, drive Chrome via CDP instead: launch with
+`--remote-debugging-port=<port>`, open its websocket from
+`GET localhost:<port>/json/list`, send
+`Emulation.setDeviceMetricsOverride` with explicit `width`, `height`,
+`deviceScaleFactor` (2, not 1 — needed to get a true sub-450px result
+in practice) and `mobile: true`, *then* `Page.captureScreenshot` or
+`Runtime.evaluate` for `getBoundingClientRect()`/`innerWidth`. Node 20+'s
+built-in global `WebSocket` can drive this with no extra packages.
 
 ## Known issues / lessons learned
 - **Flat-background logo + CSS invert filter = blank box.** The source

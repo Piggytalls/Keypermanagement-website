@@ -227,6 +227,59 @@ section {
   flex-shrink: 0;
 }
 
+/* ---------- Top bar ---------- */
+.topbar {
+  background: var(--bark);
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 38px;
+}
+
+.topbar-email {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  color: rgba(244, 241, 233, 0.75);
+}
+
+.topbar-email svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.topbar-social {
+  display: flex;
+  gap: 8px;
+}
+
+.topbar-social a {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 241, 233, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.topbar-social a:hover {
+  background: rgba(244, 241, 233, 0.12);
+  border-color: rgba(244, 241, 233, 0.5);
+}
+
+.topbar-social svg {
+  width: 13px;
+  height: 13px;
+  color: rgba(244, 241, 233, 0.85);
+}
+
 /* ---------- Header ---------- */
 .site-header {
   position: sticky;
@@ -1253,12 +1306,21 @@ section {
 
 @media (max-width: 720px) {
   .main-nav,
-  .header-phone {
+  .header-phone,
+  .topbar-email {
     display: none;
+  }
+
+  .topbar-inner {
+    justify-content: flex-end;
   }
 
   .nav-toggle {
     display: block;
+  }
+
+  .header-actions .btn {
+    display: none;
   }
 
   .site-header.nav-open .main-nav {

@@ -7,7 +7,7 @@
         <p>{{ footer.description }}</p>
         <div class="footer-social">
           {%- for s in footer.social %}
-          <a href="{{ s.href }}" aria-label="{{ s.label }}">{{ icon(s.icon) }}</a>
+          <a href="{{ s.href }}" aria-label="{{ s.label }}" target="_blank" rel="noopener">{{ icon(s.icon) }}</a>
           {%- endfor %}
         </div>
       </div>
