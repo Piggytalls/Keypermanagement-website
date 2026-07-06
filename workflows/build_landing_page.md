@@ -162,17 +162,31 @@ in practice) and `mobile: true`, *then* `Page.captureScreenshot` or
 built-in global `WebSocket` can drive this with no extra packages.
 
 ## Known issues / lessons learned
-- **The Areas section's district map is hand-placed, not generated.** The
-  `.district-map` SVG in `templates/index.html.j2` (hub-and-spoke diagram:
-  Paphos at center, the other 7 `areas_list` entries positioned by rough
-  real-world compass bearing/distance from Paphos) is hardcoded — there's
-  no geocoding step. If an area is added to/removed from/renamed in
-  `areas_list`, someone has to manually add/remove/rename its `<circle>` +
-  `<text>` + connecting `<line>` in the SVG too; nothing will error if you
-  forget, the map will just silently drift out of sync with the chip list
-  above it. Deliberately avoided a live map embed (e.g. Google Maps
-  iframe) here to keep the site's only third-party requests to none, in
-  keeping with the font self-hosting decision above.
+- **The Areas section deliberately doesn't name sub-districts anymore.**
+  An earlier version broke coverage down into a chip list + a hand-drawn
+  hub-and-spoke map naming all 8 `areas_list` entries — the business
+  preferred a single unified "we cover all of Paphos" message with no
+  district-by-district breakdown, so `areas_section` now just renders an
+  eyebrow/heading/intro plus one photo (`areas_section.image`,
+  `assets/img/photos/paphos-harbour.jpg`, AI-generated like the spotlight
+  photos). `areas_list` still exists in the YAML and still drives the
+  areas marquee, the contact form's location `<select>`, and the JSON-LD
+  `areaServed` schema (invisible to visitors, still valuable for local
+  SEO) — only the *visible, named* breakdown was removed. Don't re-add a
+  visible per-area list without checking this is still wanted.
+- **`aspect-ratio` + `<img width height>` attributes fight each other —
+  set `height: auto` explicitly.** Every photo `<img>` on this site sets
+  `width`/`height` attributes (for CLS prevention before the image loads)
+  *and* a CSS `aspect-ratio` (so the box resizes responsively). Without an
+  explicit `height: auto` in CSS, the browser used the raw `height`
+  attribute pixel value as a fixed height regardless of the image's
+  actual rendered width, silently ignoring `aspect-ratio` and producing a
+  stretched/cropped result — e.g. the Areas photo (35:16 crop) rendered as
+  a near-square box until this was fixed. It went unnoticed on the
+  spotlight photos (3:2 CSS ratio) purely because their attribute
+  height/width already happened to be a 3:2 pair, masking the same bug.
+  Always pair `width: 100%; aspect-ratio: X/Y;` with `height: auto;` on
+  any `<img>` that also carries HTML `width`/`height` attributes.
 - **Don't invent specific property/client details.** The hero card
   originally said "Latest inspection — Villa Elia, Peyia · report sent
   today" — a fabricated specific example that reads as a real client

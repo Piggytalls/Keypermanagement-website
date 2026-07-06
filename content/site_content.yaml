@@ -211,8 +211,10 @@ plans:
 
 areas_section:
   eyebrow: "Where We Work"
-  heading: "Covering Paphos and the wider district"
-  intro: "Wherever your villa or apartment is in the Paphos region, Keyper can be there — usually within the day."
+  heading: "Proudly based in Paphos, covering all of it"
+  intro: "Wherever your villa or apartment is in Paphos, Keyper can be there — usually within the day. No district too far, no request too small."
+  image: "assets/img/photos/paphos-harbour.jpg"
+  alt: "Paphos Harbour at golden hour, with the medieval castle and lighthouse"
 
 faq:
   eyebrow: "Frequently Asked"
