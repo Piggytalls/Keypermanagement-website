@@ -821,7 +821,7 @@ section {
   color: var(--olive);
 }
 
-.map-visual {
+.district-map {
   aspect-ratio: 1 / 1;
   background: var(--paper);
   border: 1px solid var(--line);
@@ -831,12 +831,51 @@ section {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  padding: 28px;
 }
 
-.map-visual svg {
-  width: 78%;
-  height: 78%;
-  color: var(--slate);
+.district-map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-ring {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.map-spoke {
+  stroke: var(--olive);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+  opacity: 0.6;
+}
+
+.map-pin circle {
+  fill: var(--paper);
+  stroke: var(--olive);
+  stroke-width: 2;
+}
+
+.map-pin text {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--bark);
+}
+
+.map-hub circle {
+  fill: var(--bark);
+  stroke: var(--paper);
+  stroke-width: 3;
+}
+
+.map-hub text {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--bark);
 }
 
 /* ---------- Spotlight (photo + copy panels woven into the page flow) ---------- */
@@ -1281,7 +1320,7 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .map-visual {
+  .district-map {
     max-width: 380px;
     margin: 0 auto;
   }

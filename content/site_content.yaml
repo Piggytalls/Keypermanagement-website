@@ -52,9 +52,9 @@ hero:
     - {icon: grid, text: "Photo-verified visits"}
     - {icon: shield, text: "Local, English-speaking team"}
   card:
-    icon: grid
-    title: "Latest inspection"
-    subtitle: "Villa Elia, Peyia · report sent today"
+    icon: pin
+    title: "Covering Paphos district-wide"
+    subtitle: "8 areas, one dedicated team"
 
 areas_list:
   - Paphos

@@ -162,6 +162,24 @@ in practice) and `mobile: true`, *then* `Page.captureScreenshot` or
 built-in global `WebSocket` can drive this with no extra packages.
 
 ## Known issues / lessons learned
+- **The Areas section's district map is hand-placed, not generated.** The
+  `.district-map` SVG in `templates/index.html.j2` (hub-and-spoke diagram:
+  Paphos at center, the other 7 `areas_list` entries positioned by rough
+  real-world compass bearing/distance from Paphos) is hardcoded — there's
+  no geocoding step. If an area is added to/removed from/renamed in
+  `areas_list`, someone has to manually add/remove/rename its `<circle>` +
+  `<text>` + connecting `<line>` in the SVG too; nothing will error if you
+  forget, the map will just silently drift out of sync with the chip list
+  above it. Deliberately avoided a live map embed (e.g. Google Maps
+  iframe) here to keep the site's only third-party requests to none, in
+  keeping with the font self-hosting decision above.
+- **Don't invent specific property/client details.** The hero card
+  originally said "Latest inspection — Villa Elia, Peyia · report sent
+  today" — a fabricated specific example that reads as a real client
+  property. Replaced with an honest, non-specific stat ("Covering Paphos
+  district-wide — 8 areas, one dedicated team"). Same principle as not
+  fabricating testimonials: don't invent specific, checkable claims about
+  real people or properties.
 - **Flat-background logo + CSS invert filter = blank box.** The source
   brand logo has an opaque background rectangle, not transparency. Applying
   `filter: brightness(0) invert(1)` (to show it in white on the dark
