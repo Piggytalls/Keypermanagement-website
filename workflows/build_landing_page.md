@@ -35,6 +35,12 @@ page — without ever hand-editing generated HTML directly.
 - `assets/fonts/*.woff2` — self-hosted Inter/Poppins (Latin subset only,
   weights 400/500/600/700). Loaded via `@font-face` in `styles.css`, not
   Google's font CDN — see "Known issues" below for why.
+- `assets/img/photos/*.jpg` — AI-generated (Higgsfield `soul_location`)
+  photography woven into the page as "spotlight" panels (see `spotlights` in
+  the YAML and `templates/_spotlight.html.j2`), not a real photo gallery.
+  These are illustrative, not photos of actual managed properties — see
+  "Known issues" below for the generation process and "Outstanding items"
+  for when to replace them with real photography.
 
 ## Tools (in order of use)
 
@@ -167,7 +173,23 @@ changed, since they render on every page. Kill the server afterward
   First-ever submission triggers a one-time confirmation email to
   `business.email` that must be clicked to activate delivery.
 
+- **AI-generated photography needs a "no people" prompt and still needs a
+  visual check.** `assets/img/photos/*.jpg` were generated with
+  `higgsfield generate create soul_location --prompt "..." --aspect_ratio 3:2
+  --wait`, then resized to 1400px-wide JPEG (quality 82) with Pillow — the
+  raw 2016px PNGs are ~3-5MB, far too heavy for a page image. First attempts
+  at the villa-exterior and bedroom shots came back with unwanted people and
+  a rendering artifact (a blank rectangle) respectively; re-prompting with
+  explicit "no people, no figures, no humans", "no blank patches", and a
+  changed camera angle fixed both. Always view generated images at full
+  size before shipping them — don't assume the first result is clean.
+
 ## Outstanding items owned by the business, not this pipeline
+- The `spotlights` photos in `content/site_content.yaml` are AI-generated
+  illustrative imagery (see above), not real photos of properties Keyper
+  manages. Swap in real photography as soon as it exists — genuine photos of
+  actual managed villas/pools would be a meaningful trust upgrade over
+  synthetic images, the same way real testimonials would beat having none.
 - No live social pages exist yet — `footer.social` only lists WhatsApp
   (a real, working link). Add Facebook/Instagram entries once those pages
   exist; don't link to placeholder `#` hrefs, they read as broken/unfinished.

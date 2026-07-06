@@ -3,6 +3,7 @@
   Source: content/site_content.yaml + templates/index.html.j2
   Rebuild with: python3 tools/build_site.py
 -->
+{% import "_spotlight.html.j2" as spot %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,6 +164,8 @@
   </div>
 </section>
 
+{{ spot.spotlight(spotlights[0]) }}
+
 <!-- ===================== WHY US ===================== -->
 <section class="why" id="why">
   <div class="container">
@@ -204,6 +207,8 @@
     </div>
   </div>
 </section>
+
+{{ spot.spotlight(spotlights[1], reverse=true) }}
 
 <!-- ===================== PLANS ===================== -->
 <section class="plans" id="plans">
@@ -252,6 +257,8 @@
     </div>
   </div>
 </section>
+
+{{ spot.spotlight(spotlights[2]) }}
 
 <!-- ===================== FAQ ===================== -->
 <section class="faq" id="faq">

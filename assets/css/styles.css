@@ -786,6 +786,63 @@ section {
   color: var(--slate);
 }
 
+/* ---------- Spotlight (photo + copy panels woven into the page flow) ---------- */
+.spotlight-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.spotlight.reverse .spotlight-layout {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+.spotlight.reverse .spotlight-media {
+  order: 2;
+}
+
+.spotlight-media img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow);
+}
+
+.spotlight-copy h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  margin-bottom: 0.5em;
+}
+
+.spotlight-copy p {
+  color: var(--slate-soft);
+  margin-bottom: 22px;
+}
+
+.spotlight-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.spotlight-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-head);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.spotlight-features svg {
+  width: 18px;
+  height: 18px;
+  color: var(--olive);
+  flex-shrink: 0;
+}
+
 /* ---------- FAQ ---------- */
 .faq {
   background: var(--paper);
@@ -1174,6 +1231,15 @@ section {
   .map-visual {
     max-width: 380px;
     margin: 0 auto;
+  }
+
+  .spotlight-layout,
+  .spotlight.reverse .spotlight-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .spotlight.reverse .spotlight-media {
+    order: 0;
   }
 
   .contact-layout {

@@ -109,6 +109,40 @@ services:
       title: "Owner Reporting"
       description: "Clear digital reports after every visit, so you always know exactly how your home is doing."
 
+# Photo + text panels woven into the page flow (not a gallery) — inserted
+# between existing sections in templates/index.html.j2 via _spotlight.html.j2.
+spotlights:
+  - eyebrow: "Property Inspections"
+    heading: "Every visit, thoroughly documented"
+    body: "We don't just check the door is locked. Every inspection covers the full property, inside and out — and you get a photo report the same day, whether you're two streets away or two continents."
+    image: "assets/img/photos/inspections-villa.jpg"
+    alt: "Whitewashed Cypriot villa exterior at golden hour, surrounded by olive trees"
+    features:
+      - "Full interior & exterior walkthrough"
+      - "Photo report sent the same day"
+      - "Weekly, fortnightly or monthly visits"
+    cta: {label: "See all care plans", href: "#plans"}
+  - eyebrow: "Pool & Garden"
+    heading: "Guest-ready water, all year round"
+    body: "Chemical balance, filters and a tidy garden — checked on every visit so your pool and grounds look the way they did the day you moved in, no matter the season."
+    image: "assets/img/photos/pool-garden.jpg"
+    alt: "Private Mediterranean villa pool at golden hour, surrounded by olive trees and lavender"
+    features:
+      - "Chemical testing & balancing"
+      - "Filter & pump checks"
+      - "Seasonal garden upkeep"
+    cta: {label: "Compare care plans", href: "#plans"}
+  - eyebrow: "Cleaning & Turnovers"
+    heading: "Fresh linen, every arrival"
+    body: "Between your visits and your guests', we handle the full turnover — cleaning, fresh linens and a welcome pack ready on the counter, so every arrival feels like the first."
+    image: "assets/img/photos/cleaning-turnover.jpg"
+    alt: "Bright Mediterranean villa bedroom with crisp white linens and sunlit curtains"
+    features:
+      - "Full clean between every stay"
+      - "Fresh linens & towels"
+      - "Welcome pack on request"
+    cta: {label: "Ask about turnovers", href: "#contact"}
+
 why:
   eyebrow: "Why Keyper"
   heading: "Peace of mind, built in"

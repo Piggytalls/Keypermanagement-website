@@ -1,0 +1,20 @@
+{% macro spotlight(item, reverse=False) %}
+<section class="spotlight{{ ' reverse' if reverse else '' }}">
+  <div class="container spotlight-layout">
+    <div class="spotlight-media" data-reveal>
+      <img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy" width="1400" height="933">
+    </div>
+    <div class="spotlight-copy" data-reveal>
+      <span class="eyebrow">{{ item.eyebrow }}</span>
+      <h2>{{ item.heading }}</h2>
+      <p>{{ item.body }}</p>
+      <ul class="spotlight-features">
+        {%- for f in item.features %}
+        <li>{{ icon('check', stroke_width=2) }}{{ f }}</li>
+        {%- endfor %}
+      </ul>
+      <a href="{{ item.cta.href }}" class="btn btn-outline">{{ item.cta.label }}</a>
+    </div>
+  </div>
+</section>
+{% endmacro %}
