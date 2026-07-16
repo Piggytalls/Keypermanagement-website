@@ -99,6 +99,9 @@ services:
     - icon: wrench
       title: "Repairs & Maintenance"
       description: "Coordinated repairs and trades work, managed start to finish on your behalf."
+    - icon: toolbox
+      title: "Repairs & Projects"
+      description: "One call and we sort any job around your home, big or small."
     - icon: gift
       title: "Welcome Packs & Guest Prep"
       description: "Fresh linens, groceries and a warm welcome ready for your guests' arrival."
@@ -262,7 +265,7 @@ footer:
   description: "Attentive, discreet property management for overseas owners in Paphos, Cyprus. The keeper of your Paphos home."
   tagline: "Designed for owners who trust Paphos to Keyper."
   social:
-    - {icon: facebook, label: "Keyper on Facebook", href: "https://www.facebook.com/profile.php?id=61591648475277"}
+    - {icon: facebook, label: "Keyper on Facebook", href: "https://www.facebook.com/profile.php?id=61591649864885"}
     - {icon: instagram, label: "Keyper on Instagram", href: "https://www.instagram.com/keypermanagement/"}
     - {icon: whatsapp, label: "Keyper on WhatsApp", href: "https://wa.me/35797950559"}
   columns:
