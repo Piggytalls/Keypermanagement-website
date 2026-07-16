@@ -57,10 +57,13 @@
   "priceRange": "{{ business.price_range }}",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "{{ business.street_address }}",
     "addressLocality": "{{ business.address_locality }}",
     "addressRegion": "{{ business.address_region }}",
+    "postalCode": "{{ business.postal_code }}",
     "addressCountry": "{{ business.address_country }}"
   },
+  "hasMap": "{{ business.google_maps_url }}",
   "areaServed": [
 {%- for area in areas_list %}
     { "@type": "{{ 'City' if area == business.address_locality else 'Place' }}", "name": "{{ area }}" }{{ "," if not loop.last }}
@@ -294,7 +297,7 @@
           <div class="contact-info-item">
             <span class="service-icon">{{ icon(item.icon) }}</span>
             {%- if item.href %}
-            <span><strong>{{ item.label }}</strong><a href="{{ item.href }}">{{ item.value }}</a></span>
+            <span><strong>{{ item.label }}</strong><a href="{{ item.href }}"{{ ' target="_blank" rel="noopener"' if item.href.startswith('http') else '' }}>{{ item.value }}</a></span>
             {%- else %}
             <span><strong>{{ item.label }}</strong><span>{{ item.value }}</span></span>
             {%- endif %}

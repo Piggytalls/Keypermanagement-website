@@ -28,7 +28,7 @@
         <ul>
           <li><a href="tel:{{ business.phone_href }}">{{ business.phone_display }}</a></li>
           <li><a href="mailto:{{ business.email }}">{{ business.email }}</a></li>
-          <li><span>{{ business.address_locality }}, Cyprus</span></li>
+          <li><a href="{{ business.google_maps_url }}" target="_blank" rel="noopener">{{ business.street_address }}, {{ business.address_locality }} {{ business.postal_code }}</a></li>
         </ul>
       </div>
     </div>

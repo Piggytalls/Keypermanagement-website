@@ -15,9 +15,12 @@ business:
   phone_href: "+35797950559"
   email: contact@keypermanagement.com
   whatsapp_number: "35797950559"
+  street_address: "Kleoniki Court, 31 Tafon ton Vasileon Avenue"
   address_locality: Paphos
   address_region: Paphos District
+  postal_code: "8045"
   address_country: CY
+  google_maps_url: "https://maps.app.goo.gl/ngAT9Ghb6HZdHvfX7"
   price_range: "€€"
   founding_year: 2026
 
@@ -253,8 +256,8 @@ contact:
       href: "mailto:contact@keypermanagement.com"
     - icon: pin
       label: "Based in"
-      value: "Paphos, Cyprus — serving the whole district"
-      href: null
+      value: "Kleoniki Court, 31 Tafon ton Vasileon Avenue, Paphos 8045, Cyprus"
+      href: "https://maps.app.goo.gl/ngAT9Ghb6HZdHvfX7"
     - icon: clock
       label: "Response time"
       value: "Within 1 working day — 24/7 for Premium plan emergencies"
