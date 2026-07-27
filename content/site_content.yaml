@@ -103,8 +103,8 @@ services:
       title: "Repairs & Maintenance"
       description: "Coordinated repairs and trades work, managed start to finish on your behalf."
     - icon: toolbox
-      title: "Repairs & Projects"
-      description: "One call and we sort any job around your home, big or small."
+      title: "Renovations & Upgrades"
+      description: "From tiling to full room renovations — bigger projects, handled properly."
     - icon: gift
       title: "Welcome Packs & Guest Prep"
       description: "Fresh linens, groceries and a warm welcome ready for your guests' arrival."
