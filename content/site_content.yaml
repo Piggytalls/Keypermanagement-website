@@ -29,8 +29,8 @@ legal:
 
 seo:
   title: "Keyper | Property Management in Paphos, Cyprus for Overseas Owners"
-  description: "Keyper is a trusted property management company in Paphos, Cyprus. Key holding, inspections, cleaning, pool & garden care, maintenance and 24/7 support for villa and holiday-home owners in Paphos, Peyia, Coral Bay, Tala and Polis Chrysochous."
-  keywords: "property management Paphos, villa management Cyprus, key holding Paphos, holiday home care Paphos, property maintenance Cyprus, overseas homeowner services Paphos"
+  description: "Keyper is a trusted property management company in Paphos, Cyprus. Key holding, inspections, cleaning, pool & garden care, renovations and upgrades, damp repair and waterproofing, with an in-house maintenance team and 24/7 support for villa and holiday-home owners in Paphos, Peyia, Coral Bay, Tala and Polis Chrysochous."
+  keywords: "property management Paphos, villa management Cyprus, key holding Paphos, holiday home care Paphos, property maintenance Cyprus, overseas homeowner services Paphos, renovations Paphos, home renovations Cyprus, small renovations Paphos, damp repair Paphos, damp proofing Cyprus, waterproofing Paphos, maintenance team Paphos"
   og_locale: en_GB
   geo_region: CY-04
   geo_placename: Paphos
@@ -46,7 +46,7 @@ nav:
 hero:
   eyebrow: "Property Management · Paphos, Cyprus"
   heading: "The Keeper of Your Paphos Home"
-  lede: "Attentive, discreet property management for overseas owners across Paphos, Peyia, Coral Bay and beyond. Your villa, watched over like our own — inspected, maintained and guest-ready, whether you're here or on the other side of the world."
+  lede: "Attentive, discreet property management for overseas owners across Paphos, Peyia, Coral Bay and beyond. Your villa, watched over like our own — inspected, maintained, repaired and renovated as needed, and always guest-ready, whether you're here or on the other side of the world."
   primary_cta: {label: "Get a Free Quote", href: "#contact"}
   secondary_cta: {label: "Call Keyper", href: "tel:+35797950559", icon: phone}
   trust_items:
@@ -54,6 +54,7 @@ hero:
     - {icon: clock, text: "24/7 on-call support"}
     - {icon: grid, text: "Photo-verified visits"}
     - {icon: shield, text: "Local, English-speaking team"}
+    - {icon: van, text: "In-house maintenance team"}
   card:
     icon: pin
     title: "Covering Paphos district-wide"
@@ -72,48 +73,69 @@ areas_list:
 services:
   eyebrow: "What We Do"
   heading: "Complete care for your Paphos property"
-  intro: "From routine inspections to emergency call-outs, Keyper handles every detail of home ownership in Cyprus so you don't have to worry from afar."
+  intro: "From routine inspections to damp treatment and full room renovations, Keyper handles every detail of home ownership in Cyprus — with our own maintenance team in Paphos, ready to visit your property whenever something needs doing."
   cta: {label: "Ask About a Service", href: "#contact"}
-  items:
-    - icon: search
-      title: "Property Inspections"
-      description: "Scheduled visits inside and out, every time, with a full photo report sent straight to you."
-    - icon: key
-      title: "Key Holding & Secure Access"
-      description: "Safe, insured key custody so we can act the moment you need us to, day or night."
-    - icon: clean
-      title: "Cleaning & Changeovers"
-      description: "Routine housekeeping and guest turnover cleaning, done properly every single time."
-    - icon: waves
-      title: "Pool Maintenance"
-      description: "Chemical balancing, filter care and regular cleaning so your pool is always guest-ready."
-    - icon: leaf
-      title: "Garden & Landscaping"
-      description: "Regular upkeep for olive trees, lawns and outdoor spaces, in every season."
-    - icon: window
-      title: "Villa & Window Cleaning"
-      description: "Interior and exterior cleaning that keeps your home looking its best, inside and out."
-    - icon: climate
-      title: "Air Conditioning Servicing"
-      description: "Seasonal checks and maintenance to keep every unit running cleanly and efficiently."
-    - icon: mail
-      title: "Mail & Post Collection"
-      description: "We collect and safely hold your post so nothing piles up while you're away."
-    - icon: wrench
-      title: "Repairs & Maintenance"
-      description: "Coordinated repairs and trades work, managed start to finish on your behalf."
-    - icon: toolbox
-      title: "Renovations & Upgrades"
-      description: "From tiling to full room renovations — bigger projects, handled properly."
-    - icon: gift
-      title: "Welcome Packs & Guest Prep"
-      description: "Fresh linens, groceries and a warm welcome ready for your guests' arrival."
-    - icon: shield-clock
-      title: "24/7 Emergency Support"
-      description: "Around-the-clock response if something needs urgent attention at your property."
-    - icon: report-check
-      title: "Owner Reporting"
-      description: "Clear digital reports after every visit, so you always know exactly how your home is doing."
+  # Rendered as labelled groups, not one flat grid. Keep each group's `items`
+  # a multiple of 3 so no row is left with an orphan card (grid is 3-up).
+  # `featured: true` gives a group the dark card treatment — one group only.
+  groups:
+    - label: "Looking After It"
+      note: "The routine, year-round care that keeps your property exactly as you left it."
+      items:
+        - icon: search
+          title: "Property Inspections"
+          description: "Scheduled visits inside and out, every time, with a full photo report sent straight to you."
+        - icon: key
+          title: "Key Holding & Secure Access"
+          description: "Safe, insured key custody so we can act the moment you need us to, day or night."
+        - icon: clean
+          title: "Cleaning & Changeovers"
+          description: "Routine housekeeping and guest turnover cleaning, done properly every single time."
+        - icon: waves
+          title: "Pool Maintenance"
+          description: "Chemical balancing, filter care and regular cleaning so your pool is always guest-ready."
+        - icon: leaf
+          title: "Garden & Landscaping"
+          description: "Regular upkeep for olive trees, lawns and outdoor spaces, in every season."
+        - icon: window
+          title: "Villa & Window Cleaning"
+          description: "Interior and exterior cleaning that keeps your home looking its best, inside and out."
+        - icon: climate
+          title: "Air Conditioning Servicing"
+          description: "Seasonal checks and maintenance to keep every unit running cleanly and efficiently."
+        - icon: mail
+          title: "Mail & Post Collection"
+          description: "We collect and safely hold your post so nothing piles up while you're away."
+        - icon: report-check
+          title: "Owner Reporting"
+          description: "Clear digital reports after every visit, so you always know exactly how your home is doing."
+
+    - label: "Fixing & Improving It"
+      note: "Damp, wear and tear, and the projects you've been putting off — quoted before we start, photographed when it's done."
+      featured: true
+      items:
+        - icon: wrench
+          title: "General Repairs"
+          description: "Plumbing, electrics, carpentry and everyday fixes, handled by our own team from start to finish."
+        - icon: roller
+          title: "Renovations & Upgrades"
+          description: "Tiling, plastering, painting and joinery through to bathroom, kitchen and full room renovations — smaller jobs and bigger projects alike."
+        - icon: droplet
+          title: "Damp Treatment & Waterproofing"
+          description: "We trace where the moisture is coming from, treat the affected walls and waterproof roofs, terraces and balconies so it stays gone."
+
+    - label: "Always On Hand"
+      note: "A local team you can actually reach — whether it's a burst pipe at midnight or guests arriving on Friday."
+      items:
+        - icon: van
+          title: "Maintenance Team On Call"
+          description: "An in-house team based in Paphos, ready to visit your property — usually the same day or the next."
+        - icon: shield-clock
+          title: "24/7 Emergency Support"
+          description: "Around-the-clock response if something needs urgent attention at your property."
+        - icon: gift
+          title: "Welcome Packs & Guest Prep"
+          description: "Fresh linens, groceries and a warm welcome ready for your guests' arrival."
 
 # Photo + text panels woven into the page flow (not a gallery) — inserted
 # between existing sections in templates/index.html.j2 via _spotlight.html.j2.
@@ -156,7 +178,7 @@ why:
   items:
     - icon: shield
       title: "Local Expertise"
-      description: "Based in Paphos with deep knowledge of the district, its trades and its properties."
+      description: "Based in Paphos with our own maintenance team and deep knowledge of the district, its trades and its properties."
     - icon: grid
       title: "Full Transparency"
       description: "Photo updates and digital reports after every visit, so nothing is ever a surprise."
@@ -234,6 +256,12 @@ faq:
       answer: "Yes. Keys are held securely and only accessed by vetted members of our team for scheduled visits, maintenance, guest turnovers or emergencies."
     - question: "Can you manage my villa if I only visit a few weeks a year?"
       answer: "Absolutely — this is exactly what Keyper was built for. Most of our clients are overseas owners who need someone local they trust to look after the property year-round."
+    - question: "Do you carry out repairs and renovations?"
+      answer: "Yes. We have our own maintenance team in Paphos handling plumbing, electrics, carpentry and general repairs, as well as renovation work — from tiling, plastering, painting and joinery through to bathroom, kitchen and full room renovations. You get a quote before anything starts and photos when it's finished."
+    - question: "Can you fix damp in my property?"
+      answer: "Yes — damp is one of the most common problems we're called about, especially in properties left closed up for months. We trace where the moisture is actually coming from, treat the affected walls, and waterproof roofs, terraces and balconies so the problem doesn't simply return next winter."
+    - question: "How quickly can someone visit my property?"
+      answer: "Our maintenance team is based in Paphos and covers the whole district, so for most requests we can be at your property the same day or the next. Urgent issues like leaks or storm damage are attended to straight away."
     - question: "Do you handle emergencies outside office hours?"
       answer: "Yes, our Premium plan includes 24/7 emergency response so issues like leaks, alarms or storm damage are dealt with immediately, not left until the next working day."
     - question: "Which areas of Paphos do you cover?"
@@ -279,6 +307,7 @@ footer:
         - {label: Cleaning, href: "#services"}
         - {label: "Pool & Garden", href: "#services"}
         - {label: Maintenance, href: "#services"}
+        - {label: "Renovations & Damp", href: "#services"}
     - heading: Company
       links:
         - {label: "How It Works", href: "#how-it-works"}

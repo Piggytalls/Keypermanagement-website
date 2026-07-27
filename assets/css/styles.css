@@ -546,6 +546,38 @@ section {
   background: var(--paper);
 }
 
+.service-group + .service-group {
+  margin-top: 56px;
+}
+
+.service-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px 28px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.service-group-head h3 {
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bark);
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.service-group-head p {
+  flex: 1 1 340px;
+  color: var(--slate-soft);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -583,8 +615,10 @@ section {
   color: var(--bark);
 }
 
-.service-card h3 {
+.service-card h4 {
+  font-family: var(--font-head);
   font-size: 1.08rem;
+  font-weight: 600;
   margin-bottom: 8px;
 }
 
@@ -592,6 +626,36 @@ section {
   color: var(--slate-soft);
   font-size: 0.95rem;
   margin-bottom: 0;
+}
+
+/* Featured group — same dark treatment as the featured plan card, so the
+   repair/renovation work reads as a distinct offer rather than more of the
+   same routine-care cards. */
+.service-group.featured .service-card {
+  background: var(--slate);
+  border-color: var(--slate);
+  color: var(--paper);
+}
+
+.service-group.featured .service-card:hover {
+  border-color: var(--slate);
+  box-shadow: var(--shadow);
+}
+
+.service-group.featured .service-card h4 {
+  color: var(--paper);
+}
+
+.service-group.featured .service-card p {
+  color: rgba(244, 241, 233, 0.78);
+}
+
+.service-group.featured .service-icon {
+  background: rgba(244, 241, 233, 0.14);
+}
+
+.service-group.featured .service-icon svg {
+  color: var(--paper);
 }
 
 .services-cta {

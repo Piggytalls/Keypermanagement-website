@@ -162,6 +162,31 @@ in practice) and `mobile: true`, *then* `Page.captureScreenshot` or
 built-in global `WebSocket` can drive this with no extra packages.
 
 ## Known issues / lessons learned
+- **Services are grouped, not one flat grid.** `services.groups` is a list of
+  `{label, note, featured?, items[]}` — rendered by `index.html.j2` as a
+  labelled band per group (uppercase label + note on one rule, then the
+  3-up card grid). Fifteen undifferentiated cards in a single grid gave the
+  section no hierarchy and buried the repair/renovation work in the middle
+  of it. Two constraints when editing:
+  1. **Keep each group's `items` a multiple of 3** — the grid is 3-up at
+     desktop, so any other count leaves an orphan card alone on the last
+     row. This is why "Owner Reporting" sits under *Looking After It* and
+     "Maintenance Team On Call" under *Always On Hand* rather than in the
+     more obvious group for each.
+  2. **`featured: true` on exactly one group.** It applies the dark
+     `--slate` card treatment borrowed from `.plan-card.featured`. It's
+     currently on *Fixing & Improving It* because repairs/renovations/damp
+     is what the business wants to push. Two dark groups would cancel the
+     emphasis out.
+- **Below-the-fold CDP screenshots come out blank — use a tall viewport.**
+  `main.js` reveals `[data-reveal]` elements via IntersectionObserver, so
+  anything outside the viewport on load stays at opacity 0. With
+  `Page.captureScreenshot` + `captureBeyondViewport: true` that silently
+  produces a correctly-sized but *empty* PNG for everything past the first
+  screen — it looks like a rendering failure but the page is fine. Pass a
+  tall `height` (6000 worked) to `Emulation.setDeviceMetricsOverride`; only
+  `width` matters for layout. The plain `--screenshot --window-size=W,H`
+  path doesn't hit this because H is the whole viewport.
 - **The Areas section deliberately doesn't name sub-districts anymore.**
   An earlier version broke coverage down into a chip list + a hand-drawn
   hub-and-spoke map naming all 8 `areas_list` entries — the business

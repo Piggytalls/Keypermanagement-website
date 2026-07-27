@@ -155,15 +155,25 @@
       <p>{{ services.intro }}</p>
     </div>
 
-    <div class="service-grid">
-      {%- for s in services["items"] %}
-      <article class="service-card" data-reveal>
-        <span class="service-icon">{{ icon(s.icon) }}</span>
-        <h3>{{ s.title }}</h3>
-        <p>{{ s.description }}</p>
-      </article>
-      {%- endfor %}
+    {%- for g in services.groups %}
+    <div class="service-group{{ ' featured' if g.featured else '' }}">
+      <div class="service-group-head" data-reveal>
+        <h3>{{ g.label }}</h3>
+        {%- if g.note %}
+        <p>{{ g.note }}</p>
+        {%- endif %}
+      </div>
+      <div class="service-grid">
+        {%- for s in g["items"] %}
+        <article class="service-card" data-reveal>
+          <span class="service-icon">{{ icon(s.icon) }}</span>
+          <h4>{{ s.title }}</h4>
+          <p>{{ s.description }}</p>
+        </article>
+        {%- endfor %}
+      </div>
     </div>
+    {%- endfor %}
 
     <div class="services-cta" data-reveal>
       <a href="{{ services.cta.href }}" class="btn btn-outline">{{ services.cta.label }}</a>

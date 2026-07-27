@@ -69,6 +69,15 @@ ICONS = {
     "toolbox": {
         "paths": '<rect x="3" y="9" width="18" height="11" rx="2"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/><path d="M3 14h18"/>',
     },
+    "roller": {
+        "paths": '<rect x="3" y="4" width="13" height="5" rx="1.5"/><path d="M16 6.5h3.5A1.5 1.5 0 0 1 21 8v2a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 0 10 13v2"/><rect x="8" y="15" width="4" height="6" rx="1.5"/>',
+    },
+    "droplet": {
+        "paths": '<path d="M12 2.5c4 5 6.5 8.2 6.5 11.2a6.5 6.5 0 0 1-13 0c0-3 2.5-6.2 6.5-11.2Z"/><path d="M9 14.5a3 3 0 0 0 3 3"/>',
+    },
+    "van": {
+        "paths": '<path d="M2 16V8a1 1 0 0 1 1-1h11v9"/><path d="M14 10h3.6a2 2 0 0 1 1.6.8L22 14.2V16h-2"/><path d="M2 16h3M9 16h7"/><circle cx="7" cy="16" r="2"/><circle cx="18" cy="16" r="2"/>',
+    },
     "gift": {
         "paths": '<path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7c-1.5-3-6-3.5-6-1s3 1 6 1M12 7c1.5-3 6-3.5 6-1s-3 1-6 1"/>',
     },
