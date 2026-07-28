@@ -1431,3 +1431,241 @@ section {
   color: var(--bark);
   text-decoration: underline;
 }
+
+/* ==========================================================================
+   SEO landing pages (templates/landing.html.j2)
+   Reuses the existing tokens, .btn, .eyebrow, .section-head and .faq-*
+   components — only the page-specific layout lives here.
+   ========================================================================== */
+.landing-narrow {
+  max-width: 780px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--slate-soft);
+  margin-bottom: 22px;
+}
+
+.breadcrumb a {
+  color: var(--slate-soft);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.breadcrumb a:hover {
+  color: var(--bark);
+  border-bottom-color: var(--line);
+}
+
+.landing-hero {
+  background: var(--chalk);
+  padding: clamp(36px, 5vw, 64px) 0 clamp(48px, 6vw, 76px);
+}
+
+.landing-hero h1 {
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  max-width: 16ch;
+  margin-bottom: 0.4em;
+}
+
+.landing-lede {
+  color: var(--slate-soft);
+  font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+  line-height: 1.65;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.landing-actions.center {
+  justify-content: center;
+}
+
+.landing-body {
+  padding-bottom: 0;
+}
+
+.landing-body h2,
+.landing-block h2 {
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  margin-bottom: 0.6em;
+}
+
+.landing-body p,
+.landing-block p {
+  color: var(--slate-soft);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-bottom: 1.1em;
+}
+
+.landing-sections {
+  padding-top: clamp(40px, 5vw, 64px);
+}
+
+.landing-block + .landing-block {
+  margin-top: clamp(38px, 4.5vw, 58px);
+  padding-top: clamp(38px, 4.5vw, 58px);
+  border-top: 1px solid var(--line);
+}
+
+.landing-points {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.landing-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  color: var(--bark-soft);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.landing-points svg {
+  width: 19px;
+  height: 19px;
+  color: var(--slate);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.landing-faq {
+  background: var(--paper);
+}
+
+.landing-related {
+  background: var(--chalk);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.related-card {
+  display: block;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 28px 24px;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: transparent;
+}
+
+.related-card h3 {
+  font-size: 1.08rem;
+  color: var(--bark);
+  margin-bottom: 8px;
+}
+
+.related-card p {
+  color: var(--slate-soft);
+  font-size: 0.93rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.landing-cta {
+  background: var(--bark);
+  text-align: center;
+}
+
+.landing-cta h2 {
+  color: var(--paper);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  margin-bottom: 0.5em;
+}
+
+.landing-cta p {
+  color: rgba(244, 241, 233, 0.78);
+  max-width: 540px;
+  margin: 0 auto 32px;
+}
+
+/* .btn-primary is bark-on-paper, which disappears against this section's
+   bark background — invert it here. The secondary button uses .btn-ghost,
+   which is already the light-on-dark variant. */
+.landing-cta .btn-primary {
+  background: var(--paper);
+  color: var(--bark);
+}
+
+.landing-cta .btn-primary:hover {
+  background: var(--white);
+  color: var(--bark);
+}
+
+/* Contextual links from the homepage services section to the landing pages */
+.explore-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.explore-label {
+  color: var(--slate-soft);
+  font-size: 0.9rem;
+  margin-right: 2px;
+}
+
+.explore-links a {
+  display: inline-block;
+  padding: 7px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--bark-soft);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.explore-links a:hover {
+  border-color: var(--slate);
+  color: var(--bark);
+}
+
+@media (max-width: 980px) {
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-hero h1 {
+    max-width: none;
+  }
+}

@@ -6,6 +6,11 @@ the Keyper property management landing page — a single static, SEO-optimized
 page — without ever hand-editing generated HTML directly.
 
 ## Required inputs
+- `content/landing_pages.yaml` — the SEO landing pages (one entry per page,
+  rendered through `templates/landing.html.j2` to `<slug>.html`). Read the
+  rules block at the top of that file before adding or editing a page —
+  they exist to stop the two things that actively harm rankings
+  (cannibalising the homepage, and near-duplicate copy across pages).
 - `content/site_content.yaml` — every piece of editable text on the site:
   business info & contact details, SEO metadata, hero copy, services, "why
   us" points, process steps, plans, service areas, FAQ, contact section,
@@ -86,6 +91,16 @@ yourself about to edit `index.html` directly, stop — the change belongs in
 `content/site_content.yaml` (text/data) or the relevant `templates/*.j2`
 file (structure), then rerun this script.
 
+**Adding a new SEO landing page** (the usual case — an area or a service):
+1. Add an entry to `content/landing_pages.yaml`, following the rules block
+   at the top of that file. Give it 3 `related` slugs.
+2. Link it from `footer.columns` and/or `services.explore` in
+   `content/site_content.yaml` so it isn't orphaned.
+3. Run `python3 tools/build_site.py`. The page, its sitemap entry and its
+   Service/Breadcrumb/FAQ schema are all generated automatically — no
+   template or build-script change needed.
+4. Run the SEO checks in the verification section and view the page.
+
 **Adding a new top-level page** (e.g. a future blog or About page):
 1. Add a `templates/<name>.html.j2` that includes `_head-assets.html.j2` in
    its `<head>`, sets `{% set subpage = true %}` before including
@@ -131,6 +146,24 @@ Edit the CSS custom properties at the top of `assets/css/styles.css`
 directly (`:root { --bark: ...; }` etc.) — no rebuild needed, it's static.
 
 ## Verification
+
+### 1. `tools/check_seo.py` — run this after every build
+```
+python3 tools/build_site.py && python3 tools/check_seo.py
+```
+Exits non-zero on failure, so it can gate a commit. It catches the things
+that are invisible in a browser but cost rankings:
+- duplicate title / description / H1 / slug / FAQ question across pages
+- near-duplicate body copy between landing pages (Jaccard > 0.45)
+- thin pages (< 400 words)
+- meta titles > 70 chars and descriptions > 165 chars (SERP truncation),
+  including the homepage's
+- homepage H1 losing the target phrase
+- malformed JSON-LD, missing canonicals, multiple or zero `<h1>`
+- broken internal links and assets
+- pages missing from `sitemap.xml`, and orphaned pages linked from nowhere
+
+### 2. Visual check
 No test suite exists for a static marketing page — verify visually:
 ```
 python3 -m http.server 8791 &
@@ -160,6 +193,49 @@ layout, drive Chrome via CDP instead: launch with
 in practice) and `mobile: true`, *then* `Page.captureScreenshot` or
 `Runtime.evaluate` for `getBoundingClientRect()`/`innerWidth`. Node 20+'s
 built-in global `WebSocket` can drive this with no extra packages.
+
+## SEO notes
+The realistic ceiling for on-page work is worth stating plainly, because it
+sets expectations for everything below: on-page SEO makes the site
+*eligible* to rank. It does not beat an established competitor on its own.
+For "property management Paphos" the incumbents include a 15-year-old
+business and an exact-match domain (`paphospropertymanagement.com`), and
+the brand name collides with an unrelated PropTech company (`realkeyper.com`)
+plus `keypmg.com`. What actually moves local rankings from here is the
+Google Business Profile (which already exists — the `google_maps_url`
+resolves to a real listing, and `business.latitude`/`longitude` are read
+off it), genuine reviews, and local citations/backlinks. None of those live
+in this repo.
+
+What the repo does control, and the rules that keep it working:
+
+- **The homepage H1 carries the target phrase, not the tagline.** It reads
+  "Property Management in Paphos, Cyprus", with "The Keeper of Your Paphos
+  Home" demoted to the eyebrow above it. This was a deliberate trade of
+  brand voice for ranking signal — don't swap them back without knowing
+  that's the trade.
+- **Nothing may target "property management Paphos" except the homepage.**
+  Two pages aimed at one phrase split the signal between two weaker pages
+  instead of concentrating it (keyword cannibalisation). This is why there
+  is no `/property-management-paphos` page: `index.html` *is* that page.
+  Area pages target `<service> <village>`; service pages target the job.
+- **Every landing page needs genuinely different copy.** Near-duplicate
+  pages read as thin content and can drag the whole domain down. Current
+  state: highest pairwise body-copy similarity is 0.26 (Jaccard over word
+  sets), all pages 420–590 words, no repeated title, description, H1 or FAQ
+  question anywhere. Re-check after adding a page — there's a script in the
+  verification section below.
+- **No page may be orphaned.** Landing pages are linked from
+  `footer.columns` (Services / Areas We Cover) and from `services.explore`
+  on the homepage, which renders the pill links under the services CTA.
+  Body links carry more weight than footer links, which is why the money
+  pages appear in both. Adding a page means adding it to at least one.
+- **Footer columns are capped at three.** `.footer-top` is a five-column
+  grid (`1.4fr 1fr 1fr 1fr 1.1fr`) = brand + 3 YAML columns + Contact. A
+  fourth column needs the CSS changed too.
+- **The Areas section still has no visible per-district list.** Area links
+  live in the footer and the services pill row instead — deliberately, so
+  the earlier decision about that section (see below) stays intact.
 
 ## Known issues / lessons learned
 - **Services are grouped, not one flat grid.** `services.groups` is a list of

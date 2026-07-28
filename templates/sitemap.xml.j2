@@ -6,6 +6,14 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+{% for page in landing_pages %}
+  <url>
+    <loc>{{ business.domain }}/{{ page.slug }}.html</loc>
+    <lastmod>{{ build_date }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{% endfor %}
   <url>
     <loc>{{ business.domain }}/privacy.html</loc>
     <lastmod>{{ build_date }}</lastmod>

@@ -1,0 +1,224 @@
+<!--
+  GENERATED FILE — do not hand-edit.
+  Source: content/landing_pages.yaml + templates/landing.html.j2
+  Rebuild with: python3 tools/build_site.py
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<meta name="keywords" content="{{ page.keywords }}">
+<meta name="author" content="{{ business.legal_name }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ business.domain }}/{{ page.slug }}.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ business.legal_name }}">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:image" content="{{ business.domain }}/assets/img/keyper-logo.png">
+<meta property="og:url" content="{{ business.domain }}/{{ page.slug }}.html">
+<meta property="og:locale" content="{{ seo.og_locale }}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+<meta name="twitter:image" content="{{ business.domain }}/assets/img/keyper-logo.png">
+
+<!-- Geo / local SEO -->
+<meta name="geo.region" content="{{ seo.geo_region }}">
+<meta name="geo.placename" content="{{ page.area }}">
+
+{% include "_head-assets.html.j2" %}
+
+<!-- Structured data: the service this page is about, tied by @id to the
+     business record on the homepage so Google treats them as one entity. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "{{ business.domain }}/{{ page.slug }}.html#service",
+  "name": "{{ page.service_type }} in {{ page.area }}",
+  "serviceType": "{{ page.service_type }}",
+  "description": "{{ page.description }}",
+  "url": "{{ business.domain }}/{{ page.slug }}.html",
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "@id": "{{ business.domain }}/#business",
+    "name": "{{ business.legal_name }}",
+    "telephone": "{{ business.phone_href }}",
+    "email": "{{ business.email }}",
+    "url": "{{ business.domain }}/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ business.street_address }}",
+      "addressLocality": "{{ business.address_locality }}",
+      "addressRegion": "{{ business.address_region }}",
+      "postalCode": "{{ business.postal_code }}",
+      "addressCountry": "{{ business.address_country }}"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "{{ business.latitude }}",
+      "longitude": "{{ business.longitude }}"
+    }
+  },
+  "areaServed": {
+    "@type": "{{ 'City' if page.area == business.address_locality else 'Place' }}",
+    "name": "{{ page.area }}"
+  }
+}
+</script>
+
+<!-- Structured data: breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ business.domain }}/" },
+    { "@type": "ListItem", "position": 2, "name": "{{ page.h1 }}", "item": "{{ business.domain }}/{{ page.slug }}.html" }
+  ]
+}
+</script>
+
+{% if page.faq %}
+<!-- Structured data: FAQ (page-specific — no question repeats across pages) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+{%- for item in page.faq %}
+    {
+      "@type": "Question",
+      "name": "{{ item.question }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ item.answer }}"
+      }
+    }{{ "," if not loop.last }}
+{%- endfor %}
+  ]
+}
+</script>
+{% endif %}
+</head>
+<body>
+
+{% set subpage = true %}
+{% include "_header.html.j2" %}
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="landing-hero">
+  <div class="container landing-narrow">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ page.h1 }}</span>
+    </nav>
+    <span class="eyebrow">{{ page.eyebrow }}</span>
+    <h1>{{ page.h1 }}</h1>
+    <p class="landing-lede">{{ page.lede }}</p>
+    <div class="landing-actions">
+      <a href="index.html#contact" class="btn btn-primary">Get a Free Quote</a>
+      <a href="tel:{{ business.phone_href }}" class="btn btn-outline">{{ icon('phone') }} {{ business.phone_display }}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO ===================== -->
+<section class="landing-body">
+  <div class="container landing-narrow">
+    <h2 data-reveal>{{ page.intro_heading }}</h2>
+    {%- for para in page.intro_body %}
+    <p data-reveal>{{ para }}</p>
+    {%- endfor %}
+  </div>
+</section>
+
+<!-- ===================== SECTIONS ===================== -->
+<section class="landing-sections">
+  <div class="container landing-narrow">
+    {%- for s in page.sections %}
+    <article class="landing-block" data-reveal>
+      <h2>{{ s.heading }}</h2>
+      <p>{{ s.body }}</p>
+      {%- if s.points %}
+      <ul class="landing-points">
+        {%- for p in s.points %}
+        <li>{{ icon('check', stroke_width=2) }}{{ p }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+{% if page.faq %}
+<!-- ===================== FAQ ===================== -->
+<section class="landing-faq">
+  <div class="container landing-narrow">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Frequently Asked</span>
+      <h2>{{ page.h1 }} — your questions</h2>
+    </div>
+    <div class="faq-list" data-reveal>
+      {%- for item in page.faq %}
+      <div class="faq-item">
+        <button class="faq-question">{{ item.question }}<span class="plus"></span></button>
+        <div class="faq-answer"><p>{{ item.answer }}</p></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ===================== RELATED ===================== -->
+{% if page.related %}
+<section class="landing-related">
+  <div class="container">
+    <div class="section-head center" data-reveal>
+      <span class="eyebrow">Also From Keyper</span>
+      <h2>Related services &amp; areas</h2>
+    </div>
+    <div class="related-grid">
+      {%- for slug in page.related %}
+      {%- set rel = pages_by_slug[slug] %}
+      <a class="related-card" href="{{ rel.slug }}.html" data-reveal>
+        <span class="eyebrow">{{ rel.eyebrow }}</span>
+        <h3>{{ rel.h1 }}</h3>
+        <p>{{ rel.lede }}</p>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ===================== CTA ===================== -->
+<section class="landing-cta">
+  <div class="container">
+    <h2>Talk to someone local about your property</h2>
+    <p>Tell us where it is and what it needs. We usually reply within one working day — and the quote is free.</p>
+    <div class="landing-actions center">
+      <a href="index.html#contact" class="btn btn-primary">Get a Free Quote</a>
+      <a href="https://wa.me/{{ business.whatsapp_number }}" class="btn btn-ghost" target="_blank" rel="noopener">{{ icon('whatsapp') }} WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+{% include "_footer.html.j2" %}
+</body>
+</html>

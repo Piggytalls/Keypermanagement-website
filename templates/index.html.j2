@@ -64,6 +64,37 @@
     "addressCountry": "{{ business.address_country }}"
   },
   "hasMap": "{{ business.google_maps_url }}",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ business.latitude }}",
+    "longitude": "{{ business.longitude }}"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "{{ services.heading }}",
+    "itemListElement": [
+{%- for g in services.groups %}
+      {
+        "@type": "OfferCatalog",
+        "name": "{{ g.label }}",
+        "itemListElement": [
+  {%- for s in g["items"] %}
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "{{ s.title }}",
+              "description": "{{ s.description }}",
+              "provider": { "@id": "{{ business.domain }}/#business" },
+              "areaServed": { "@type": "City", "name": "{{ business.address_locality }}" }
+            }
+          }{{ "," if not loop.last }}
+  {%- endfor %}
+        ]
+      }{{ "," if not loop.last }}
+{%- endfor %}
+    ]
+  },
   "areaServed": [
 {%- for area in areas_list %}
     { "@type": "{{ 'City' if area == business.address_locality else 'Place' }}", "name": "{{ area }}" }{{ "," if not loop.last }}
@@ -177,6 +208,14 @@
 
     <div class="services-cta" data-reveal>
       <a href="{{ services.cta.href }}" class="btn btn-outline">{{ services.cta.label }}</a>
+      {%- if services.explore %}
+      <div class="explore-links">
+        <span class="explore-label">{{ services.explore_label }}</span>
+        {%- for l in services.explore %}
+        <a href="{{ l.href }}">{{ l.label }}</a>
+        {%- endfor %}
+      </div>
+      {%- endif %}
     </div>
   </div>
 </section>

@@ -21,6 +21,11 @@ business:
   postal_code: "8045"
   address_country: CY
   google_maps_url: "https://maps.app.goo.gl/ngAT9Ghb6HZdHvfX7"
+  # Coordinates of the Google Business Profile listing "Keyper Property
+  # Management Paphos" — read off the resolved google_maps_url, not guessed.
+  # Re-derive with: curl -sIL "<google_maps_url>" | grep -i ^location
+  latitude: "34.7694943"
+  longitude: "32.4101316"
   price_range: "€€"
   founding_year: 2026
 
@@ -29,7 +34,9 @@ legal:
 
 seo:
   title: "Keyper | Property Management in Paphos, Cyprus for Overseas Owners"
-  description: "Keyper is a trusted property management company in Paphos, Cyprus. Key holding, inspections, cleaning, pool & garden care, renovations and upgrades, damp repair and waterproofing, with an in-house maintenance team and 24/7 support for villa and holiday-home owners in Paphos, Peyia, Coral Bay, Tala and Polis Chrysochous."
+  # Keep under ~160 chars — Google truncates past that. tools/check_seo.py
+  # enforces it. The long-tail place names live on the landing pages now.
+  description: "Property management in Paphos, Cyprus for overseas villa owners — inspections, key holding, cleaning, pool and garden care, repairs and damp treatment."
   keywords: "property management Paphos, villa management Cyprus, key holding Paphos, holiday home care Paphos, property maintenance Cyprus, overseas homeowner services Paphos, renovations Paphos, home renovations Cyprus, small renovations Paphos, damp repair Paphos, damp proofing Cyprus, waterproofing Paphos, maintenance team Paphos"
   og_locale: en_GB
   geo_region: CY-04
@@ -44,8 +51,10 @@ nav:
   - {label: Contact, href: "#contact"}
 
 hero:
-  eyebrow: "Property Management · Paphos, Cyprus"
-  heading: "The Keeper of Your Paphos Home"
+  # The H1 carries the target search phrase, not the tagline — see the SEO
+  # notes in workflows/build_landing_page.md before swapping these back.
+  eyebrow: "The Keeper of Your Paphos Home"
+  heading: "Property Management in Paphos, Cyprus"
   lede: "Attentive, discreet property management for overseas owners across Paphos, Peyia, Coral Bay and beyond. Your villa, watched over like our own — inspected, maintained, repaired and renovated as needed, and always guest-ready, whether you're here or on the other side of the world."
   primary_cta: {label: "Get a Free Quote", href: "#contact"}
   secondary_cta: {label: "Call Keyper", href: "tel:+35797950559", icon: phone}
@@ -75,6 +84,19 @@ services:
   heading: "Complete care for your Paphos property"
   intro: "From routine inspections to damp treatment and full room renovations, Keyper handles every detail of home ownership in Cyprus — with our own maintenance team in Paphos, ready to visit your property whenever something needs doing."
   cta: {label: "Ask About a Service", href: "#contact"}
+  # Contextual links to the SEO landing pages, rendered as a row of pills
+  # under the services CTA. Links from body content carry more weight than
+  # footer links, so the money pages are listed here too.
+  explore_label: "Read more about:"
+  explore:
+    - {label: "Villa management in Paphos", href: "villa-management-paphos.html"}
+    - {label: "Holiday home management", href: "holiday-home-management-paphos.html"}
+    - {label: "Damp treatment & waterproofing", href: "damp-treatment-waterproofing-paphos.html"}
+    - {label: "Renovations & upgrades", href: "renovations-paphos.html"}
+    - {label: "Peyia", href: "property-management-peyia.html"}
+    - {label: "Coral Bay", href: "property-management-coral-bay.html"}
+    - {label: "Tala", href: "property-management-tala.html"}
+    - {label: "Chlorakas & Kissonerga", href: "property-management-chlorakas.html"}
   # Rendered as labelled groups, not one flat grid. Keep each group's `items`
   # a multiple of 3 so no row is left with an orphan card (grid is 3-up).
   # `featured: true` gives a group the dark card treatment — one group only.
@@ -299,23 +321,30 @@ footer:
     - {icon: facebook, label: "Keyper on Facebook", href: "https://www.facebook.com/profile.php?id=61591649864885"}
     - {icon: instagram, label: "Keyper on Instagram", href: "https://www.instagram.com/keypermanagement/"}
     - {icon: whatsapp, label: "Keyper on WhatsApp", href: "https://wa.me/35797950559"}
+  # Footer columns double as the internal-link map for the SEO landing pages.
+  # Every page in content/landing_pages.yaml must appear here or on the
+  # homepage — an unlinked page is an orphan and won't be crawled properly.
+  # Kept to three columns: brand + these 3 + Contact = the 5 the CSS grid
+  # expects (.footer-top is `1.4fr 1fr 1fr 1fr 1.1fr`).
   columns:
     - heading: Services
       links:
-        - {label: Inspections, href: "#services"}
-        - {label: "Key Holding", href: "#services"}
-        - {label: Cleaning, href: "#services"}
-        - {label: "Pool & Garden", href: "#services"}
-        - {label: Maintenance, href: "#services"}
-        - {label: "Renovations & Damp", href: "#services"}
+        - {label: "Villa Management", href: "villa-management-paphos.html"}
+        - {label: "Holiday Home Management", href: "holiday-home-management-paphos.html"}
+        - {label: "Damp & Waterproofing", href: "damp-treatment-waterproofing-paphos.html"}
+        - {label: "Renovations & Upgrades", href: "renovations-paphos.html"}
+        - {label: "All Services", href: "#services"}
+    - heading: Areas We Cover
+      links:
+        - {label: Peyia, href: "property-management-peyia.html"}
+        - {label: "Coral Bay", href: "property-management-coral-bay.html"}
+        - {label: Tala, href: "property-management-tala.html"}
+        - {label: "Chlorakas & Kissonerga", href: "property-management-chlorakas.html"}
     - heading: Company
       links:
         - {label: "How It Works", href: "#how-it-works"}
         - {label: Plans, href: "#plans"}
-        - {label: "Areas We Cover", href: "#areas"}
         - {label: FAQ, href: "#faq"}
         - {label: Contact, href: "#contact"}
-    - heading: Legal
-      links:
         - {label: "Privacy Policy", href: "privacy.html"}
         - {label: "Terms of Service", href: "terms.html"}

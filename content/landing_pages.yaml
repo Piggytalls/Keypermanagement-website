@@ -1,0 +1,336 @@
+# ==========================================================================
+# Keyper SEO landing pages — one file, one page per entry.
+#
+# Edit this file, then run: python3 tools/build_site.py
+# Each entry renders to <slug>.html via templates/landing.html.j2 and is
+# added to sitemap.xml automatically. Never hand-edit the generated HTML.
+#
+# RULES — read before adding or editing a page:
+#
+# 1. NO page targets "property management Paphos". That is the homepage's
+#    phrase. A second page aimed at it would compete with index.html for the
+#    same query (keyword cannibalisation) and split the ranking signal
+#    between two weaker pages instead of concentrating it on one strong one.
+#    Area pages target "<service> <village>"; service pages target the
+#    specific job. Keep it that way.
+#
+# 2. Copy must be genuinely different per page — not this page with the
+#    village name swapped. Near-duplicate pages are treated as thin content
+#    and can drag the whole domain down. Each page below leads with a
+#    different real concern (winter damp, guest changeovers, pool plant,
+#    project management from abroad) precisely so they don't collide.
+#
+# 3. Don't invent specifics. No client names, no property addresses, no
+#    "we manage 200 villas", no review counts. Same rule as the homepage.
+#
+# 4. `related` drives the internal link block at the foot of each page.
+#    Give every page 3 siblings so no page is orphaned.
+# ==========================================================================
+
+pages:
+
+  # ---------------------------------------------------------------- areas
+  - slug: property-management-peyia
+    kind: area
+    area: Peyia
+    service_type: "Property Management"
+    title: "Property Management in Peyia, Cyprus | Villa Care | Keyper"
+    description: "Property management in Peyia for overseas villa owners. Inspections, key holding, pool and garden care, damp treatment and repairs for hillside villas."
+    keywords: "property management Peyia, villa management Peyia, key holding Peyia, holiday home care Peyia Cyprus"
+    eyebrow: "Peyia · Paphos District"
+    h1: "Property Management in Peyia"
+    lede: "Peyia's hillside villas are wonderful to own and unforgiving to leave alone. Keyper looks after them year-round for owners who are mostly somewhere else."
+    intro_heading: "The problem with a hillside villa you visit twice a year"
+    intro_body:
+      - "Most Peyia properties we look after belong to people who bought for the view and the quiet, and who get out here for a few weeks at a time. The rest of the year the house sits closed up — shutters down, water off, nobody turning a key."
+      - "That's fine until it isn't. An exposed hillside position means wind-driven rain finds gaps that a sheltered town apartment never would. Pools go green quietly. A dripping joint behind a cupboard has months to do damage before anyone opens the door."
+    sections:
+      - heading: "What we actually check on a Peyia visit"
+        body: "Elevated, exposed properties need a different walkthrough to a town flat. Ours is built around what actually goes wrong up here."
+        points:
+          - "Roof, terrace and balcony surfaces after every spell of heavy weather"
+          - "Shutters, external doors and window seals on the exposed elevations"
+          - "Pool water balance and plant room, including over winter"
+          - "Irrigation and outside taps — the usual source of a slow, invisible leak"
+          - "Damp patches on internal walls, caught early rather than at handover"
+      - heading: "Gardens that don't run wild while you're away"
+        body: "Peyia plots tend to be generous, which is lovely in April and a jungle by August. We keep olive trees, shrubs and lawns in shape on a schedule that matches the season rather than the calendar, so the place looks cared for the day you land — not two weeks later."
+      - heading: "One local number, not a list of trades"
+        body: "The alternative to a management company is usually a phone full of numbers for a pool man, a gardener, an electrician and someone's cousin who does tiling. We're the single point of contact, and the repair and renovation work is done by our own team rather than subcontracted and marked up."
+    faq:
+      - question: "Do you cover Peyia and the surrounding hillside villages?"
+        answer: "Yes. Peyia is inside our core coverage area and we're there regularly, so adding a property usually doesn't change our routing at all. We cover the wider Paphos district too, including Coral Bay, Tala, Kissonerga, Chlorakas and Emba."
+      - question: "My Peyia villa is empty all winter. Is that a problem?"
+        answer: "It's the situation most of our clients are in, and it's exactly when regular visits earn their keep. Winter is when wind-driven rain, blocked drainage and unheated rooms cause damp — all of which are cheap to catch early and expensive to find in spring."
+      - question: "Can you look after the pool through the months nobody swims?"
+        answer: "Yes, and we'd recommend it. A pool left untouched over winter costs far more to bring back than one that's been maintained, and neglected water can damage the plant as well as the finish."
+    related: [property-management-coral-bay, villa-management-paphos, damp-treatment-waterproofing-paphos]
+
+  - slug: property-management-coral-bay
+    kind: area
+    area: Coral Bay
+    service_type: "Property Management"
+    title: "Property Management in Coral Bay, Cyprus | Keyper"
+    description: "Coral Bay property management for holiday-home and rental owners. Guest changeovers, cleaning, pool care, maintenance and 24/7 response all season."
+    keywords: "property management Coral Bay, holiday let management Coral Bay, changeover cleaning Coral Bay Cyprus"
+    eyebrow: "Coral Bay · Paphos District"
+    h1: "Property Management in Coral Bay"
+    lede: "Coral Bay properties work hardest in the months you're least able to be there. Keyper handles the turnovers, the upkeep and the things that go wrong at 9pm on a Saturday."
+    intro_heading: "A resort address means a busier property"
+    intro_body:
+      - "Coral Bay is a short-let market. Owners here tend to have guests in and out through the season, which changes what management means — it's less about checking on an empty house and more about a property being genuinely ready, again and again, on a deadline."
+      - "It also means wear. Salt air, sand, sun on external paintwork and soft furnishings, and far more use of A/C, plumbing and pool than a private holiday home ever sees."
+    sections:
+      - heading: "Changeovers that don't slip"
+        body: "A turnover is a fixed deadline with no flexibility — the next guests arrive whether or not the linen did. Ours run to a checklist and get photographed, so you can see the property was actually ready rather than take our word for it."
+        points:
+          - "Full clean between every stay, not a tidy-round"
+          - "Fresh linens and towels, laundered and swapped out"
+          - "Consumables restocked and bins dealt with"
+          - "Damage and wear flagged with photos before the next arrival"
+          - "Welcome pack on request for guests who've travelled all day"
+      - heading: "Keeping ahead of the season's wear"
+        body: "The point of managing a busy property is to spot the slow decline before a guest does. We track the things that quietly degrade over a season — A/C performance, grout and sealant, pool plant, external paintwork and anything salt has got to — and deal with them in the quiet months when it's cheaper and nobody's staying."
+      - heading: "Somebody local when something breaks mid-stay"
+        body: "Guests don't call the owner, they call whoever answers. A failed A/C unit in August or a blocked drain on a changeover day needs a person in Paphos with keys, not an email chain across three time zones. Our maintenance team can usually be there the same day."
+    faq:
+      - question: "Do you manage properties that are let out to holiday guests?"
+        answer: "Yes. We handle the property side — changeover cleaning, linens, welcome preparation, maintenance and emergency response. We don't act as a letting agent or handle bookings and guest payments, so we work alongside whatever platform or agent you already use."
+      - question: "How quickly can you turn a property around between guests?"
+        answer: "Same-day changeovers are normal in season, provided we know the schedule in advance. The earlier we have your booking calendar, the more reliably we can staff the busy weeks."
+      - question: "What happens if a guest reports a problem while they're staying?"
+        answer: "They contact us and we deal with it. Our team is based in Paphos with keys already held securely, so urgent issues get attended to rather than logged. You get told what happened and what it cost."
+    related: [holiday-home-management-paphos, property-management-peyia, renovations-paphos]
+
+  - slug: property-management-tala
+    kind: area
+    area: Tala
+    service_type: "Property Management"
+    title: "Property Management in Tala, Cyprus | Keyper"
+    description: "Property management in Tala for overseas owners. Inspections, key holding, garden and pool upkeep, damp treatment and repairs, with photo reports every visit."
+    keywords: "property management Tala, villa management Tala Cyprus, key holding Tala, property maintenance Tala"
+    eyebrow: "Tala · Paphos District"
+    h1: "Property Management in Tala"
+    lede: "Tala sits high enough to get a real winter. Keyper looks after properties here through it — and through the long quiet stretches when nobody's home."
+    intro_heading: "Higher ground, cooler summers, wetter winters"
+    intro_body:
+      - "Tala's elevation is why people buy here, and it's also why the properties need watching. It's noticeably cooler than the coast in August and noticeably wetter and windier in January, and the second half of that is what puts a house at risk."
+      - "Stone and older-build properties in the village hold moisture differently to new coastal apartments. Closed up for months without heating or airflow, they're prime candidates for condensation, musty rooms and damp working its way into plaster."
+    sections:
+      - heading: "Winter is the job here"
+        body: "For a Tala property, the months you're least likely to visit are the months that matter most. Our winter routine is built around it."
+        points:
+          - "Ventilation and airflow checks so rooms aren't left to sweat"
+          - "Gutters, downpipes and terrace drainage cleared before the rain"
+          - "Early damp and mould spotting on cold external walls"
+          - "Roof and flashing checked after storms, not months later"
+          - "Heating and A/C run periodically so they still work in spring"
+      - heading: "Grounds and olive trees, season by season"
+        body: "Village plots here often come with mature olive trees and established planting that reward being left alone at the right times and cut back hard at others. We work to the season rather than a fixed fortnightly mow, which usually costs less and always looks better."
+      - heading: "Photo reports, because you can't drop in"
+        body: "Every visit produces a report with photographs, sent the same day. It isn't decoration — for an owner two thousand miles away it's the only honest way to know whether the roof really was fine in November, and it's what makes a small repair a decision rather than a surprise."
+    faq:
+      - question: "Why does damp seem worse in Tala than nearer the coast?"
+        answer: "Elevation. Tala gets more rain and lower winter temperatures than the coastal strip, and a property closed up without heating or ventilation will condense moisture on cold walls. It isn't a fault with the building so much as a consequence of leaving it shut — which is why regular airing and early treatment matter so much here."
+      - question: "I let the property to long-term tenants. Can you still help?"
+        answer: "Yes. For tenanted properties we typically handle maintenance, repairs and the periodic condition checks, while you or your agent handle the tenancy itself. It means your tenant has someone local to call and you get an independent view of how the property is being kept."
+      - question: "How often should a Tala property be inspected?"
+        answer: "Through winter we'd suggest more frequent visits than in summer — that's when the weather-related problems happen. Plans run from weekly to monthly and there's no reason the frequency can't change with the season."
+    related: [property-management-peyia, damp-treatment-waterproofing-paphos, villa-management-paphos]
+
+  - slug: property-management-chlorakas
+    kind: area
+    area: Chlorakas
+    service_type: "Property Management"
+    title: "Property Management in Chlorakas & Kissonerga | Keyper"
+    description: "Property management in Chlorakas, Kissonerga and Emba. Key holding, inspections, cleaning, pool and garden care, repairs and damp treatment."
+    keywords: "property management Chlorakas, property management Kissonerga, property management Emba Cyprus, key holding Chlorakas"
+    eyebrow: "Chlorakas · Kissonerga · Emba"
+    h1: "Property Management in Chlorakas & Kissonerga"
+    lede: "The villages just north of Paphos town — close enough to be convenient, far enough that nobody's checking on your property unless you've asked them to."
+    intro_heading: "Mixed streets, mixed needs"
+    intro_body:
+      - "Chlorakas, Kissonerga and Emba have a bit of everything: newer apartment blocks, older village houses, and villas on the edges with pools and gardens. The management job changes with the property type rather than the postcode, so we don't sell a single fixed package here."
+      - "What's consistent is the ownership pattern. A lot of these properties belong to people living abroad, some let out, some kept purely for family visits, most empty for long stretches."
+    sections:
+      - heading: "Apartments need less, but not nothing"
+        body: "It's tempting to think a lock-up-and-leave apartment looks after itself. The common failure points are unglamorous and consistent: a slow leak under a sink, a fridge left running or left off badly, balcony drainage blocking, a water heater failing, post piling visibly outside a door. A short regular visit catches all of it."
+        points:
+          - "Interior and exterior check with photo report"
+          - "Water, power and appliance status confirmed"
+          - "Balcony and terrace drainage kept clear"
+          - "Post collected so the property doesn't look empty"
+          - "Communal-area issues flagged to you or the committee"
+      - heading: "Villas on the village edge"
+        body: "Where the plots open up, the work looks more like our Peyia and Tala routine — pool plant, irrigation, gardens, external surfaces and the weather damage that comes with a more exposed position. Same team, different checklist."
+      - heading: "Close to base"
+        body: "We're based on Tafon ton Vasileon Avenue in Paphos, which puts these villages a few minutes away. In practice that means call-outs here are quick and a same-day visit is usually straightforward rather than a favour."
+    faq:
+      - question: "Do you cover Emba as well as Chlorakas and Kissonerga?"
+        answer: "Yes — all three, along with the rest of the Paphos district. They're close to our base in Paphos town, so response times here are among our quickest."
+      - question: "I own an apartment, not a villa. Is a management plan worth it?"
+        answer: "For an apartment that's genuinely empty most of the year, yes — mainly for leak detection, appliance checks and post collection, and because an obviously unoccupied property is a target. The plan is smaller and cheaper than a villa's because there's no pool or garden to maintain."
+      - question: "Can you deal with the building's management committee on my behalf?"
+        answer: "We can raise and chase communal issues we spot during visits — drainage, lighting, shared area damage — and keep you informed. We don't represent you legally or vote on your behalf at owners' meetings."
+    related: [villa-management-paphos, holiday-home-management-paphos, renovations-paphos]
+
+  # -------------------------------------------------------------- services
+  - slug: villa-management-paphos
+    kind: service
+    area: Paphos
+    service_type: "Villa Management"
+    title: "Villa Management in Paphos, Cyprus | Pool, Garden & Systems | Keyper"
+    description: "Villa management in Paphos for overseas owners. Pool plant, irrigation, gardens, air conditioning, damp and repairs — all maintained year-round."
+    keywords: "villa management Paphos, villa maintenance Cyprus, pool and garden management Paphos, luxury villa care Paphos"
+    eyebrow: "Villa Specialists"
+    h1: "Villa Management in Paphos"
+    lede: "A villa isn't a large apartment. It's a building with machinery attached — and the machinery is what fails while you're away."
+    intro_heading: "Everything a villa has that a flat doesn't"
+    intro_body:
+      - "Pool pump and filtration. Irrigation and outside taps. Multiple A/C units. A roof and terraces with their own drainage. Gates, external lighting, sometimes a borehole or pressure system. Each is a thing that runs unattended for months and each has a failure mode that gets expensive quietly."
+      - "That's the real argument for managing a villa properly: not tidiness, but the fact that a €60 part replaced in March is a €2,000 problem in July."
+    sections:
+      - heading: "The systems we keep on top of"
+        body: "Villa visits are longer than apartment visits because there's more that can go wrong out of sight."
+        points:
+          - "Pool: chemical balance, filter, pump and plant room condition"
+          - "Irrigation: timers, leaks and dead zones before the planting dies"
+          - "Air conditioning: seasonal service, filters and drainage"
+          - "Water: pressure, heaters, tanks and any sign of a slow leak"
+          - "Structure: roof, terraces, balconies and external paintwork"
+      - heading: "Grounds that reflect the house"
+        body: "A well-kept villa with a neglected garden still reads as neglected — and it's the first thing a guest, a valuer or a prospective buyer registers. We keep lawns, planting, olive trees and hard landscaping in proportion through the year rather than rescuing them before each visit."
+      - heading: "Repairs and improvements without flying out"
+        body: "Because repairs, damp work and renovations are done by our own team, an issue found on a Tuesday inspection doesn't need a separate contractor hunt. You get a quote, you say yes or no, and you get photographs when it's finished — the whole loop runs without you being in the country."
+    faq:
+      - question: "What makes villa management different from general property management?"
+        answer: "Plant and grounds. A villa typically has a pool with its own pump and filtration, irrigation, several A/C units, larger roof and terrace areas and a garden — all of which run or degrade unattended. Villa visits take longer and follow a technical checklist rather than a walkthrough."
+      - question: "Do you maintain the pool yourself or subcontract it?"
+        answer: "Our own team handles pool maintenance along with repairs, damp work and renovations. It means one point of contact, one invoice, and no margin stacked on top of someone else's call-out."
+      - question: "Can you prepare the villa before we arrive?"
+        answer: "Yes. A pre-arrival preparation — clean, linens, pool and A/C checked and running, basics in the fridge if you want them — is standard on our fuller plans and available as a one-off otherwise."
+      - question: "We're thinking of selling. Can you get the villa presentable?"
+        answer: "Yes, and it's worth doing properly. Between our maintenance and renovation teams we can handle the repairs, repainting, damp treatment and grounds work that change how a property shows, and keep it maintained through the marketing period."
+    related: [property-management-peyia, renovations-paphos, damp-treatment-waterproofing-paphos]
+
+  - slug: holiday-home-management-paphos
+    kind: service
+    area: Paphos
+    service_type: "Holiday Home Management"
+    title: "Holiday Home Management in Paphos, Cyprus | Keyper"
+    description: "Holiday home management in Paphos for overseas owners and short-let hosts. Guest changeovers, cleaning, linens, welcome packs and 24/7 response."
+    keywords: "holiday home management Paphos, short let management Cyprus, changeover cleaning Paphos, Airbnb management Paphos"
+    eyebrow: "Holiday Homes & Short Lets"
+    h1: "Holiday Home Management in Paphos"
+    lede: "Your guests judge the property in the first ten minutes. Keyper makes sure those ten minutes go well, every single arrival."
+    intro_heading: "The gap between a good property and a good stay"
+    intro_body:
+      - "Most poor reviews aren't about the house. They're about a bed that wasn't made properly, an A/C unit nobody checked, a bin that didn't get emptied, or nobody answering when something broke. All of it is operational, and all of it is fixable with someone competent on the ground."
+      - "That's the job we do for holiday-home owners: the physical property and the guest experience of it, so the property earns its reputation rather than fighting it."
+    sections:
+      - heading: "Every changeover, to the same standard"
+        body: "Consistency is the whole thing. A property that's excellent four times out of five has a one-in-five problem."
+        points:
+          - "Full clean between stays, to a fixed checklist"
+          - "Fresh linens and towels laundered and swapped"
+          - "Beds made, bathrooms restocked, kitchen reset"
+          - "A/C, hot water and pool confirmed working before arrival"
+          - "Photographs of the finished property, filed against the date"
+      - heading: "Welcome packs and arrival preparation"
+        body: "Guests who've landed late after a long flight remember whether there was cold water, coffee and milk waiting. We can put together a welcome pack, stock the basics and have the place cool and lit for a late arrival — a small cost that shows up in reviews out of all proportion."
+      - heading: "Someone to call, and someone to fix it"
+        body: "We're the on-the-ground contact during a stay, and because repairs are handled in-house we can usually resolve rather than escalate. Broken A/C, a failed water heater, a blocked drain — dealt with the same day where we can, with you told what happened afterwards."
+      - heading: "The unglamorous long game"
+        body: "Short-let properties age faster than private ones. We track the wear — mattresses, grout, sealant, paintwork, pool plant, garden furniture — and flag what's worth replacing before it starts costing you bookings, ideally scheduling it into the quiet months."
+    faq:
+      - question: "Do you handle bookings and guest payments?"
+        answer: "No. We manage the property, not the letting — cleaning, changeovers, preparation, maintenance and on-the-ground guest support. Bookings, pricing and payments stay with you or your letting agent, and we fit around whichever platform you use."
+      - question: "Can you work to our booking calendar?"
+        answer: "Yes, and the more notice we have the better. Sharing your calendar lets us schedule changeovers, laundry and staff properly through the busy months instead of reacting to each departure."
+      - question: "What happens between seasons?"
+        answer: "That's when the maintenance, deep cleaning, repairs and any renovation work should happen. A property that's been serviced over winter starts the season looking new instead of tired, and it's far cheaper than doing the same work between bookings."
+      - question: "Do you provide linens or do we?"
+        answer: "Either. Most owners keep several sets on site and we launder and rotate them; we can also arrange linen supply if you'd rather not hold stock. Whichever it is, we make sure a changeover never runs short."
+    related: [property-management-coral-bay, villa-management-paphos, property-management-chlorakas]
+
+  - slug: damp-treatment-waterproofing-paphos
+    kind: service
+    area: Paphos
+    service_type: "Damp Treatment and Waterproofing"
+    title: "Damp Treatment & Waterproofing in Paphos, Cyprus | Keyper"
+    description: "Damp treatment and waterproofing in Paphos. We trace the source, treat the affected walls and waterproof roofs, terraces and balconies so it stays gone."
+    keywords: "damp treatment Paphos, damp proofing Cyprus, waterproofing Paphos, roof waterproofing Cyprus, mould treatment Paphos, rising damp Cyprus"
+    eyebrow: "Damp & Waterproofing"
+    h1: "Damp Treatment & Waterproofing in Paphos"
+    lede: "Painting over damp hides it until spring. We find where the water is actually getting in, then stop it."
+    intro_heading: "Why Cyprus properties get damp"
+    intro_body:
+      - "People are often surprised that damp is a problem in a place this dry. It's precisely because of how the year splits: a long hot season, then concentrated winter rain hitting flat roofs, terraces and balconies that have spent months baking and moving in the heat."
+      - "Add a property closed up for months with no heating and no airflow, and you get the second cause — condensation. Warm damp air, cold external walls, no ventilation, and mould appears in corners, behind wardrobes and along the ceiling line without a drop of rain getting in."
+      - "The two have completely different fixes, which is why diagnosis matters more than treatment."
+    sections:
+      - heading: "Diagnosis before treatment"
+        body: "The mistake we're most often called in to undo is treating the stain instead of the cause. Sealed and repainted, it looks solved for a season and comes back worse."
+        points:
+          - "Establish whether it's ingress, plumbing, rising damp or condensation"
+          - "Trace the actual entry point — often nowhere near the visible patch"
+          - "Check roof, terrace, balcony and parapet detailing for failures"
+          - "Rule out slow plumbing leaks behind walls and under floors"
+          - "Photograph everything, so you can see the reasoning, not just the bill"
+      - heading: "Treating the wall properly"
+        body: "Once the source is dealt with, the affected structure has to be brought back — removing failed plaster where it needs removing, treating mould rather than painting over it, drying the substrate, then replastering and redecorating. Done in the right order it stays fixed; done in the wrong order you're repeating it next winter."
+      - heading: "Waterproofing roofs, terraces and balconies"
+        body: "Most water ingress we see in Paphos comes through horizontal surfaces and their edges — flat roofs, terrace floors, balcony junctions and parapet details, where heat movement has opened up membranes and seals. We waterproof these properly rather than patching, because a patched membrane simply fails at the next join along."
+      - heading: "For owners who aren't in Cyprus"
+        body: "Damp is exactly the problem that's worst to have remotely: invisible until it's serious, then quoted by someone you can't easily check. You get photographs of the diagnosis, a written quote before anything starts, and photographs of the finished work. If we find it during a routine inspection you'll usually hear about it the same day."
+    faq:
+      - question: "How do I know whether it's a leak or condensation?"
+        answer: "Broadly, ingress tends to be localised and seasonal — a patch that appears or worsens after rain, often high on a wall or near a roof or terrace junction. Condensation is more general, appears in cold corners, behind furniture and along ceiling lines, and is worst in properties left shut up and unheated. They need opposite fixes, so it's worth establishing which before spending anything."
+      - question: "Can you fix damp in a property I'm not able to visit?"
+        answer: "Yes — that's most of this work. We diagnose, photograph, quote in writing, and photograph again on completion. Nothing starts without your approval."
+      - question: "Will the damp come back?"
+        answer: "Not if the cause was actually dealt with. That's why we spend time on diagnosis rather than going straight to treatment — treating the symptom is what produces the properties we get called back to, where damp has returned every winter for years through fresh paint."
+      - question: "Do you waterproof flat roofs and terraces as well as treating walls?"
+        answer: "Yes, and usually both are needed. Treating an internal wall while leaving the failed terrace membrane above it untouched means the wall is wet again by the following winter."
+    related: [renovations-paphos, villa-management-paphos, property-management-tala]
+
+  - slug: renovations-paphos
+    kind: service
+    area: Paphos
+    service_type: "Renovations and Upgrades"
+    title: "Renovations & Upgrades in Paphos, Cyprus | Keyper"
+    description: "Renovations and upgrades in Paphos — tiling, plastering, painting and joinery through to bathroom, kitchen and full room renovations. Free quotes."
+    keywords: "renovations Paphos, home renovation Cyprus, bathroom renovation Paphos, kitchen renovation Paphos, tiling Paphos, property upgrades Cyprus"
+    eyebrow: "Renovations & Upgrades"
+    h1: "Renovations & Upgrades in Paphos"
+    lede: "Everything from a tired bathroom to a full room rebuild — run by the same team that already looks after your property."
+    intro_heading: "Managing a renovation from another country"
+    intro_body:
+      - "Renovating remotely is where most overseas owners get burned. Work starts, the scope drifts, communication thins out, and the only way to know what's happening is to fly out and look. By then the money's spent."
+      - "We approach it the other way around. A written quote before anything starts, photographs as the work progresses, and a single point of contact who was already visiting your property before this job existed and will still be visiting after it's finished."
+    sections:
+      - heading: "The work we take on"
+        body: "Smaller jobs and bigger projects alike — the range is wide because the same team handles your routine maintenance."
+        points:
+          - "Bathroom and kitchen refurbishment"
+          - "Tiling, plastering and rendering"
+          - "Interior and exterior painting and decorating"
+          - "Joinery, fitted storage and door and window work"
+          - "Full room renovations and layout changes"
+          - "Making good after damp treatment or water damage"
+      - heading: "Quoted before we start, photographed when it's done"
+        body: "No work begins without a written quote you've agreed. If something unexpected turns up behind a wall — which on older properties it does — you hear about it and price it before we carry on, not in the final invoice. Progress photographs mean you can follow the job without being here."
+      - heading: "Renovating around a letting calendar"
+        body: "If the property earns money, the work has to fit the gaps. We schedule renovation projects into the quiet months and stage them around bookings where we can, so upgrading a bathroom doesn't cost you a season of income."
+      - heading: "Upgrades that pay for themselves"
+        body: "Not every improvement is worth doing. The ones that reliably return — better A/C, proper insulation and waterproofing, a bathroom that photographs well, outdoor space that's usable in summer — do so through lower running costs, better bookings or a better sale. We'll say when we think a job isn't worth the money."
+    faq:
+      - question: "Do you do full renovations or only small jobs?"
+        answer: "Both. Tiling, plastering, painting and joinery through to bathroom, kitchen and full room renovations. Where a project needs licensed trades or permissions beyond our scope we'll tell you plainly rather than take it on."
+      - question: "How do I know what it'll cost before committing?"
+        answer: "You get a written quote before any work starts, and nothing proceeds until you've approved it. If something unforeseen appears once work is underway, it's priced and agreed separately rather than appearing on the final bill."
+      - question: "Can you renovate while I'm not in Cyprus?"
+        answer: "Yes — that's the normal case for us. We hold keys, manage access, send progress photographs and handle the day-to-day decisions we've agreed we can make. You're consulted on anything that changes scope or cost."
+      - question: "Do you handle repairs after water damage or damp?"
+        answer: "Yes, and it's often the same job. Once the cause is fixed and the structure is dry, our team does the replastering, tiling and redecoration needed to make the room right again."
+    related: [damp-treatment-waterproofing-paphos, villa-management-paphos, property-management-coral-bay]
