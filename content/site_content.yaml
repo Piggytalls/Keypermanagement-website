@@ -41,6 +41,14 @@ seo:
   og_locale: en_GB
   geo_region: CY-04
   geo_placename: Paphos
+  # Google Search Console verification. Paste ONLY the token here — the bit
+  # inside content="..." from the HTML tag Google shows you, not the whole
+  # tag. Leave empty and no meta tag is rendered at all.
+  # Get it at: https://search.google.com/search-console
+  #   Add property -> URL prefix -> https://www.keypermanagement.com
+  #   -> "HTML tag" method -> copy the content value -> paste below
+  #   -> python3 tools/build_site.py -> commit + push -> click Verify
+  google_site_verification: ""
 
 nav:
   - {label: Services, href: "#services"}
