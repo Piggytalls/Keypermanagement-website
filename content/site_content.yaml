@@ -30,7 +30,25 @@ business:
   founding_year: 2026
 
 legal:
-  last_updated: "5 July 2026"
+  last_updated: "31 July 2026"
+
+analytics:
+  # Vercel Web Analytics. This is a static site with no bundler, so the
+  # @vercel/analytics npm package (which is a React component) can't be used
+  # — the supported path for non-framework projects is the first-party
+  # script below, injected via templates/_head-assets.html.j2.
+  #
+  # It is cookieless and served from /_vercel/insights on this domain, so it
+  # adds no third-party requests — which is why it doesn't undo the reason
+  # the fonts are self-hosted (see workflows/build_landing_page.md).
+  #
+  # MUST ALSO be switched on in the Vercel dashboard:
+  #   Project -> Analytics -> Web Analytics -> Enable
+  # Without that the script 404s and no data is collected.
+  #
+  # Setting this to false removes the script from every page. If you do
+  # that, revert the analytics wording in templates/privacy.html.j2 too.
+  vercel_web_analytics: true
 
 seo:
   title: "Keyper | Property Management in Paphos, Cyprus for Overseas Owners"

@@ -32,6 +32,11 @@ MAX_SIMILARITY = 0.45
 # Google truncates SERP titles past roughly this width.
 MAX_TITLE_CHARS = 70
 MAX_DESCRIPTION_CHARS = 165
+# Paths served by the Vercel platform at the edge rather than by files in
+# this repo (e.g. /_vercel/insights/script.js for Web Analytics). They will
+# never exist locally, so the broken-asset check has to skip them — but only
+# these, so a genuinely missing local asset still fails.
+RUNTIME_PATHS = ("/_vercel/",)
 
 failures = []
 notes = []
@@ -147,13 +152,15 @@ def check_built_html(pages):
                 fail(f"{name}: malformed JSON-LD — {exc}")
 
         for href in re.findall(r'href="([^"]+)"', html):
-            if href.startswith(("http", "mailto:", "tel:", "#")):
+            if href.startswith(("http", "mailto:", "tel:", "#")) or href.startswith(RUNTIME_PATHS):
                 continue
             target = href.split("#")[0]
             if target and not (ROOT / target).exists():
                 fail(f"{name}: broken link -> {href}")
         for src in re.findall(r'src="([^"]+)"', html):
-            if not src.startswith("http") and not (ROOT / src).exists():
+            if src.startswith("http") or src.startswith(RUNTIME_PATHS):
+                continue
+            if not (ROOT / src).exists():
                 fail(f"{name}: broken asset -> {src}")
 
     ok(f"{len(html_files)} pages: one H1 each, canonical present, JSON-LD parses, links resolve")
